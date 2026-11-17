@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-17T20:11:12+01:00",
+ "actualizado": "2026-11-17T20:31:30+01:00",
  "cola": {
   "guiones_pendientes": 0,
   "proximos": [],
@@ -8,7 +8,7 @@
   "ultima_guion": "2026-11-17T19:35:38+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-17T14:54:05+01:00",
-  "pc_ultima": "2026-11-17T20:11:12+01:00",
+  "pc_ultima": "2026-11-17T20:31:30+01:00",
   "pc_version": "v32"
  },
  "videos": [
@@ -16,7 +16,7 @@
    "id": "Hfs-WSdEn98",
    "titulo": "GTA 6 da una fiesta en Wynwood, el barrio real de Miami 🎨",
    "publicado": "2026-11-17T16:00:07+00:00",
-   "vistas": 2,
+   "vistas": 3,
    "likes": 1,
    "short": true,
    "canal": "es"
@@ -25,7 +25,7 @@
    "id": "Emcq1Eafc-M",
    "titulo": "El Seven Mile Bridge no mide 7 millas 🌉 Cayos de GTA 6 (Parte 1)",
    "publicado": "2026-11-17T13:00:25+00:00",
-   "vistas": 5,
+   "vistas": 7,
    "likes": 0,
    "short": true,
    "canal": "es"
@@ -106,7 +106,7 @@
    "id": "bmEpVMNEA1Q",
    "titulo": "El río de Florida que avanza 30 metros al día 🐊",
    "publicado": "2026-11-16T10:50:58+00:00",
-   "vistas": 302,
+   "vistas": 303,
    "likes": 8,
    "short": true,
    "canal": "es"
@@ -166,8 +166,8 @@
   },
   {
    "hora": "2026-11-17T20:00",
-   "vistas": 3814,
-   "likes": 61,
+   "vistas": 3825,
+   "likes": 62,
    "videos": 12
   }
  ],
@@ -180,7 +180,7 @@
   "youtube": 7,
   "instagram": {
    "seguidores": 0,
-   "publicaciones": 6
+   "publicaciones": 7
   }
  },
  "nombre": "Fuera del Mapa"
