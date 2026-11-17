@@ -323,15 +323,15 @@ window.tcOfi = (() => {
     for (let fila = 0; fila < 3; fila++) for (let i = 0; i < 4; i++) { const gx = 15.2 + i * 1.3, gy = 3.0 + fila * 1.3; add(gx + 0.3, gy + 0.3, (c) => { caja(c, gx, gy, 0.8, 0.7, 16, '#c8324a'); caja(c, gx, gy + 0.55, 0.8, 0.2, 38, '#a82a40'); }); }
     add(20.6, 6.6, (c) => { caja(c, 20.2, 6.2, 0.6, 0.5, 30, '#ffd36b'); const p = iso(20.5, 6.4, 30); c.fillStyle = '#fff6d6'; [[-5, -4], [2, -7], [6, -2], [-1, -1]].forEach(([dx, dy]) => { c.beginPath(); c.arc(p.x + dx, p.y + dy, 4, 0, 7); c.fill(); }); });
     // sala del PC: armarios con lucecitas y el PC de la fábrica
-    [22.0, 23.3].forEach((gx, j) => add(gx + 0.4, 1.4, (c) => {
-      caja(c, gx, 0.9, 0.9, 0.8, 110, '#2a2738');
-      for (let i = 0; i < 9; i++) { const p = iso(gx + 0.9, 1.3, 14 + i * 10); const on = D.pce === 'Trabajando' && Math.floor(t / 170 + i * 1.7 + j) % 3; c.fillStyle = on ? '#7df9c8' : '#4a4660'; c.fillRect(p.x + 2, p.y - 2, 6, 2); c.fillStyle = on && i % 2 ? '#ff6fae' : '#4a4660'; c.fillRect(p.x + 11, p.y + 3, 6, 2); }
+    [4.0, 5.3].forEach((gy, j) => add(27.3, gy + 0.4, (c) => {
+      const gx = 26.9; caja(c, gx, gy, 0.9, 0.9, 72, '#2a2738');
+      for (let i = 0; i < 6; i++) { const p = iso(gx + 0.9, gy + 0.4, 12 + i * 10); const on = D.pce === 'Trabajando' && Math.floor(t / 170 + i * 1.7 + j) % 3; c.fillStyle = on ? '#7df9c8' : '#4a4660'; c.fillRect(p.x + 2, p.y - 2, 6, 2); c.fillStyle = on && i % 2 ? '#ff6fae' : '#4a4660'; c.fillRect(p.x + 11, p.y + 3, 6, 2); }
     }));
-    add(25.5, 4.6, (c) => {
-      caja(c, 24.4, 4.0, 2.0, 1.0, 30, '#ffffff'); caja(c, 25.6, 4.15, 0.55, 0.7, 44, '#1d1b28', 30);
-      const p = iso(26.15, 4.5, 60), on = D.pce === 'Trabajando';
+    add(23.3, 4.8, (c) => {
+      caja(c, 22.2, 4.2, 2.0, 1.0, 30, '#ffffff'); caja(c, 23.4, 4.35, 0.55, 0.7, 44, '#1d1b28', 30);
+      const p = iso(23.95, 4.7, 60), on = D.pce === 'Trabajando';
       c.beginPath(); c.arc(p.x, p.y, 6, 0, 7); c.fillStyle = on ? '#7df9c8' : '#ff5d70'; c.shadowColor = c.fillStyle; c.shadowBlur = 10; c.fill(); c.shadowBlur = 0;
-      caja(c, 24.6, 4.2, 0.7, 0.12, 22, '#2d2a3a', 30); enX(c, 24.64, 4.32, 52, () => rr(c, 0, 0, 19, 18, 2, on ? '#7df9c8' : '#3b3850'));
+      caja(c, 22.4, 4.4, 0.7, 0.12, 22, '#2d2a3a', 30); enX(c, 22.44, 4.52, 52, () => rr(c, 0, 0, 19, 18, 2, on ? '#7df9c8' : '#3b3850'));
     });
     planta(27.3, 6.3, 0.9);
     // plató: escenario, focos y cámara
@@ -447,8 +447,12 @@ window.tcOfi = (() => {
       const cv = document.createElement('canvas');
       cv.setAttribute('role', 'img'); cv.setAttribute('aria-label', 'Planta de oficinas de Fuera del Mapa: análisis, guiones, cine, sala del PC, plató, publicación y seguidores, cada una con sus datos y su personaje');
       cv.style.touchAction = 'none'; cv.style.cursor = 'grab';
-      const pista = document.createElement('div'); pista.className = 'tc-pista'; pista.textContent = 'Arrastra para moverte · pellizca para acercarte · toca un vídeo del cine';
-      el.append(cv, pista); setTimeout(() => pista.classList.add('fuera'), 5000);
+      const pista = document.createElement('div'); pista.className = 'tc-pista'; pista.textContent = 'Toca una sala para verla de cerca · arrastra para moverte';
+      const barra = document.createElement('div'); barra.className = 'tc-salas';
+      [['general', '🏢 Todo'], ['pc', '🔌 PC'], ['seguidores', '👥 Seguidores'], ['cine', '🎬 Vídeos'], ['analisis', '📊 Análisis'], ['guiones', '✍️ Guiones'], ['plato', '🎥 Plató'], ['publicacion', '🚀 Publicación']].forEach(([k, n]) => {
+        const b = document.createElement('button'); b.type = 'button'; b.textContent = n; b.onclick = () => ir(k); barra.append(b);
+      });
+      el.append(cv, pista, barra); setTimeout(() => pista.classList.add('fuera'), 5000);
       const quieto = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
       const st = { cv, D: datos(), act: {}, img: {}, quieto, ult: 0, id: 0, vista: null, enlaces: [] };
       Object.entries(AG).forEach(([k, g]) => { st.act[k] = { x: g.sofa[0], y: g.sofa[1], dir: 1, ruta: [], dest: null }; });
@@ -458,7 +462,7 @@ window.tcOfi = (() => {
       const ctx = cv.getContext('2d');
       const ajustar = () => {
         const cw = el.clientWidth, ch = el.clientHeight, cabe = Math.min(cw / LW, ch / LH);
-        const s = cw < 700 ? Math.max(cabe, 0.5) : Math.max(cabe, Math.min(0.75, ch / 900));
+        const s = cw < 700 ? Math.max(cabe, 0.55) : Math.max(cabe, Math.min(0.75, ch / 900));
         st.min = cabe * 0.9; st.max = 2.4;
         const foco = iso(12, 9, 60);
         st.vista = { s, x: cw / 2 - foco.x * s, y: ch / 2 - foco.y * s };
@@ -467,8 +471,24 @@ window.tcOfi = (() => {
         const v = st.vista, cw = el.clientWidth, ch = el.clientHeight;
         v.s = Math.max(st.min, Math.min(st.max, v.s));
         const W2 = LW * v.s, H2 = LH * v.s;
-        v.x = W2 <= cw ? (cw - W2) / 2 : Math.min(0, Math.max(cw - W2, v.x));
-        v.y = H2 <= ch ? (ch - H2) / 2 : Math.min(0, Math.max(ch - H2, v.y));
+        const mx = cw * 0.45, my = ch * 0.45;   // margen para poder centrar también las salas de las esquinas
+        v.x = W2 <= cw ? Math.min(cw - W2 + mx, Math.max(-mx, v.x)) : Math.min(mx, Math.max(cw - W2 - mx, v.x));
+        v.y = H2 <= ch ? Math.min(ch - H2 + my, Math.max(-my, v.y)) : Math.min(my, Math.max(ch - H2 - my, v.y));
+      };
+      // viaje suave a una sala (o a la vista general)
+      const ir = (k) => {
+        const cw = el.clientWidth, ch = el.clientHeight - 56; let s, f;
+        if (k === 'general') { s = Math.min(cw / LW, ch / LH); f = { x: LW / 2, y: LH / 2 }; }
+        else { const r = SALAS[k]; s = Math.max(0.8, Math.min(2.2, Math.min(cw / 470, ch / 520))); f = r.muro === 'fondo' ? iso(r.x + 3.5, 2.6, 95) : iso(2.6, r.y + 3.5, 95); }
+        st.anim = { de: { ...st.vista }, a: { s, x: cw / 2 - f.x * s, y: ch / 2 - f.y * s }, t0: performance.now() };
+        if (st.quieto) { Object.assign(st.vista, st.anim.a); st.anim = null; limitar(); requestAnimationFrame(st.frame); }
+      };
+      st.ir = ir;
+      const salaEn = (px, py) => {
+        const v = st.vista, wx = (px - v.x) / v.s, wy = (py - v.y) / v.s, a = (wx - OX) / (TW / 2), b = (wy - OY) / (TH / 2);
+        let gx = (a + b) / 2, gy = (b - a) / 2;
+        if (gy < 0) gy = 1; if (gx < 0) gx = 1;   // toque en una pared: la sala de esa pared
+        const e = Object.entries(SALAS).find(([, r]) => gx >= r.x && gx <= r.x + r.w && gy >= r.y && gy <= r.y + r.d); return e && e[0];
       };
       const zoom = (f, px, py) => { const v = st.vista, s2 = Math.max(st.min, Math.min(st.max, v.s * f)); v.x = px - (px - v.x) * s2 / v.s; v.y = py - (py - v.y) * s2 / v.s; v.s = s2; limitar(); };
       const punteros = new Map(); let ultimoToque = 0, dist0 = 0, inicio = null;
@@ -476,7 +496,7 @@ window.tcOfi = (() => {
       const dentro = (pt, pol) => { let r = false; for (let i = 0, j = pol.length - 1; i < pol.length; j = i++) { const [xi, yi] = pol[i], [xj, yj] = pol[j]; if ((yi > pt[1]) !== (yj > pt[1]) && pt[0] < (xj - xi) * (pt[1] - yi) / (yj - yi) + xi) r = !r; } return r; };
       const dprAhora = () => Math.min(2, window.devicePixelRatio || 1);
       cv.addEventListener('pointerdown', (e) => {
-        cv.setPointerCapture(e.pointerId); const p = pos(e); punteros.set(e.pointerId, p); cv.style.cursor = 'grabbing';
+        st.anim = null; cv.setPointerCapture(e.pointerId); const p = pos(e); punteros.set(e.pointerId, p); cv.style.cursor = 'grabbing';
         inicio = punteros.size === 1 ? { p, t: Date.now(), movido: 0 } : null;
         if (punteros.size === 2) { const [a, b] = [...punteros.values()]; dist0 = Math.hypot(a[0] - b[0], a[1] - b[1]); }
       });
@@ -492,7 +512,7 @@ window.tcOfi = (() => {
         if (inicio && inicio.movido < 8 && Date.now() - inicio.t < 500) {
           const d = dprAhora(), l = st.enlaces.find((x) => dentro([p[0] * d, p[1] * d], x.poli));
           if (l) window.open(l.url, '_blank', 'noopener');
-          else { const ahora = Date.now(); if (ahora - ultimoToque < 320) zoom(st.vista.s > st.min * 2 ? 0.5 : 1.8, p[0], p[1]); ultimoToque = ahora; }
+          else { const k = salaEn(p[0], p[1]); if (k) ir(k); else { const ahora = Date.now(); if (ahora - ultimoToque < 320) zoom(st.vista.s > st.min * 2 ? 0.5 : 1.8, p[0], p[1]); ultimoToque = ahora; } }
         }
         punteros.delete(e.pointerId); if (!punteros.size) cv.style.cursor = 'grab'; dist0 = 0; inicio = null;
       });
@@ -504,6 +524,7 @@ window.tcOfi = (() => {
         if (cv.width !== Math.round(cw * dpr) || cv.height !== Math.round(ch * dpr)) { cv.width = Math.round(cw * dpr); cv.height = Math.round(ch * dpr); ajustar(); limitar(); }
         const dt = Math.min(60, t - (st.ult || t)); st.ult = t;
         ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
+        if (st.anim) { const k = Math.min(1, (t - st.anim.t0) / 650), e = 1 - Math.pow(1 - k, 3), A = st.anim; ['s', 'x', 'y'].forEach((c) => { st.vista[c] = A.de[c] + (A.a[c] - A.de[c]) * e; }); if (k >= 1) { st.anim = null; limitar(); } }
         const v = st.vista; ctx.setTransform(dpr * v.s, 0, 0, dpr * v.s, dpr * v.x, dpr * v.y);
         const D = st.D, modos = {};
         st.enlaces = [];
