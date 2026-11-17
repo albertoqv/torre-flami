@@ -20,6 +20,9 @@ h1 { font: 900 22px/1 Inter, sans-serif; margin: 0; letter-spacing: -.01em; }
 h1 span { color: var(--rosa); }
 .act { font: 600 11px/1.3 Inter, sans-serif; color: var(--suave); text-align: right; }
 button.recargar { background: var(--panel); color: var(--texto); border: 1px solid var(--linea); border-radius: 10px; padding: 8px 10px; font: 700 12px Inter, sans-serif; }
+.selector { display: flex; gap: 8px; overflow-x: auto; margin-bottom: 12px; }
+.selector button { background: var(--panel); color: var(--suave); border: 1px solid var(--linea); border-radius: 999px; padding: 8px 14px; font: 700 13px Inter, sans-serif; white-space: nowrap; }
+.selector button.on { background: var(--rosa); color: #1e1a2e; border-color: var(--rosa); }
 .chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 12px; }
 @media (min-width: 700px) { .chips { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .chip { background: var(--panel); border-radius: 14px; padding: 10px 12px; min-width: 0; }
@@ -50,6 +53,7 @@ h2 { font: 800 15px Inter, sans-serif; margin: 18px 0 8px; }
   <h1>Torre <span>Flami</span> 🦩</h1>
   <div style="display:flex;gap:8px;align-items:center"><div class="act" id="act">Cargando…</div><button class="recargar" id="recargar" aria-label="Actualizar">↻</button></div>
 </header>
+<div class="selector" id="selector" hidden></div>
 <div class="chips" id="chips"></div>
 <div class="marco" id="marco"><div class="tc-ofi" id="oficina"></div></div>
 <h2>Los vídeos que más tiran</h2>
@@ -123,9 +127,24 @@ function pintarResto() {
   document.getElementById('act').textContent = act ? 'Datos de las ' + act.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }) : 'Sin datos aún';
 }
 
+let PROYECTO = null;
+try { PROYECTO = localStorage.getItem('proyecto'); } catch (e) {}
+async function proyectos() {
+  try {
+    const lista = await (await fetch('data/canales.json?t=' + Date.now(), { cache: 'no-store' })).json();
+    if (!PROYECTO || !lista.some((p) => p.slug === PROYECTO)) PROYECTO = lista[0] && lista[0].slug;
+    const sel = document.getElementById('selector');
+    sel.hidden = lista.length < 2;
+    sel.replaceChildren(...lista.map((p) => {
+      const b = document.createElement('button'); b.textContent = p.nombre; if (p.slug === PROYECTO) b.className = 'on';
+      b.onclick = () => { PROYECTO = p.slug; try { localStorage.setItem('proyecto', p.slug); } catch (e) {} proyectos(); cargar(); };
+      return b;
+    }));
+  } catch (e) {}
+}
 async function cargar() {
   try {
-    const r = await fetch('data/app.json?t=' + Date.now(), { cache: 'no-store' });
+    const r = await fetch('data/' + (PROYECTO || 'app') + '.json?t=' + Date.now(), { cache: 'no-store' });
     APP = await r.json();
     dibujos.oficina.update(el, st);
     pintarResto();
@@ -133,7 +152,7 @@ async function cargar() {
 }
 document.getElementById('recargar').onclick = cargar;
 document.addEventListener('visibilitychange', () => { if (!document.hidden) cargar(); });
-cargar();
+proyectos().then(cargar);
 setInterval(cargar, 120000);
 const marco = document.getElementById('marco');
 if (marco.scrollWidth > marco.clientWidth) marco.scrollLeft = (marco.scrollWidth - marco.clientWidth) * 0.45;
