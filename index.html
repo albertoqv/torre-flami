@@ -20,7 +20,7 @@ body { display: flex; flex-direction: column; padding: env(safe-area-inset-top) 
 .selector button.on { background: #ff6fae; color: #1a1236; border-color: #ff6fae; }
 .torre { position: relative; flex: 1; min-height: 0; width: 100%; }
 .torre canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.tc-pista { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); background: rgba(26,18,54,.85); color: #fff; font: 500 14px Fredoka, sans-serif; padding: 8px 14px; border-radius: 999px; white-space: nowrap; pointer-events: none; transition: opacity .6s; }
+.tc-pista { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); background: rgba(26,18,54,.85); color: #fff; font: 500 14px Fredoka, sans-serif; padding: 8px 14px; border-radius: 16px; max-width: 90%; text-align: center; pointer-events: none; transition: opacity .6s; }
 .tc-pista.fuera { opacity: 0; }
 </style>
 </head>
