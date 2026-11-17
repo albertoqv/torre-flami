@@ -8,6 +8,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icono-192.png">
 <link rel="apple-touch-icon" href="icono-192.png">
+<link rel="stylesheet" href="paneles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -30,8 +31,10 @@ button.recargar { background: var(--panel); color: var(--texto); border: 1px sol
 .chip span { font: 600 11px Inter, sans-serif; color: var(--suave); }
 .chip.ok { background: #12453a; } .chip.mal { background: #5a1830; }
 .marco { overflow-x: auto; border-radius: 18px; -webkit-overflow-scrolling: touch; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
-.tc-ofi { position: relative; width: 100%; aspect-ratio: 760 / 500; background: #1e1a2e; }
-@media (max-width: 640px) { .tc-ofi { width: 760px; } }
+.tc-ofi { position: relative; width: 100%; aspect-ratio: 900 / 590; background: #1e1a2e; }
+@media (max-width: 640px) { .tc-ofi { width: 860px; } }
+.pista { font: 600 11px Inter, sans-serif; color: var(--suave); margin: 6px 2px 0; }
+@media (min-width: 641px) { .pista { display: none; } }
 .tc-ofi canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .tc-ofi-capa { position: absolute; inset: 0; pointer-events: none; }
 .tc-tag { position: absolute; transform: translate(-50%, 0); background: rgba(30,26,46,.88); color: #fff; font: 700 12px/1 Inter, sans-serif; padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
@@ -56,6 +59,8 @@ h2 { font: 800 15px Inter, sans-serif; margin: 18px 0 8px; }
 <div class="selector" id="selector" hidden></div>
 <div class="chips" id="chips"></div>
 <div class="marco" id="marco"><div class="tc-ofi" id="oficina"></div></div>
+<p class="pista">↔ Desliza la oficina para ver el plató del reparto</p>
+<div id="paneles"></div>
 <h2>Los vídeos que más tiran</h2>
 <div class="lista" id="top"></div>
 <h2>Últimos publicados</h2>
@@ -76,9 +81,10 @@ function tablas(a) {
     totales: [{ vistas: es.reduce((s, v) => s + (v.vistas || 0), 0), likes: es.reduce((s, v) => s + (v.likes || 0), 0), videos: es.length,
       vistas_br: vids.filter((v) => v.canal === 'pt').reduce((s, v) => s + (v.vistas || 0), 0) }],
     redes: [
-      { red: 'YouTube', seguidores: r.youtube ?? null }, { red: 'TikTok', seguidores: r.tiktok ? r.tiktok.seguidores : null },
+      { red: 'YouTube', seguidores: r.youtube ?? null }, { red: 'TikTok', seguidores: r.tiktok ? r.tiktok.seguidores : null, likes: r.tiktok ? r.tiktok.likes : null },
       { red: 'Instagram', seguidores: r.instagram ? r.instagram.seguidores : null }, { red: 'YouTube Brasil', seguidores: r.youtube_pt ?? null }],
     cola: [{ guiones: c.guiones_pendientes || 0, listos: c.listos_para_subir || 0 }],
+    pc: [{ version: c.pc_version || '' }],
     pc_estado: [{ estado: minPc == null ? 'Sin datos' : minPc <= 45 ? 'Trabajando' : 'Apagado' }],
     agentes: [
       { id: 'guionista', activo: true, ultima: c.ultima_guion, resultado: horas(c.ultima_guion) < 26 ? 'ok' : 'falló' },
@@ -99,6 +105,7 @@ window.dash = {
 };
 </script>
 <script src="oficina.js"></script>
+<script src="paneles.js"></script>
 <script>
 dash.draw('oficina', window.tcOfi);
 const el = document.getElementById('oficina');
@@ -148,6 +155,7 @@ async function cargar() {
     APP = await r.json();
     dibujos.oficina.update(el, st);
     pintarResto();
+    window.tcPan(document.getElementById('paneles'));
   } catch (e) { document.getElementById('act').textContent = 'Sin conexión'; }
 }
 document.getElementById('recargar').onclick = cargar;

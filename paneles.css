@@ -1,0 +1,39 @@
+.tc-tag-rep { background: rgba(224,80,127,.92) !important; }
+.tp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; margin-top: 16px; }
+.tp-card { --ac: #ff6fae; background: #1e1a2e; color: #fff; border-radius: 18px; padding: 16px 16px 14px; border-top: 4px solid var(--ac); display: flex; flex-direction: column; gap: 10px; min-width: 0; box-shadow: 0 6px 18px rgba(20,10,40,.25); font-family: Inter, system-ui, sans-serif; }
+.tp-h { margin: 0; font: 800 15px/1.2 Inter, system-ui, sans-serif; display: flex; align-items: center; gap: 8px; color: #fff; }
+.tp-ico { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; background: color-mix(in srgb, var(--ac) 22%, transparent); font-size: 16px; }
+.tp-grande { margin: 0; font: 900 34px/1 Inter, system-ui, sans-serif; font-variant-numeric: tabular-nums; color: var(--ac); }
+.tp-sub, .tp-mini { margin: 0; font: 600 12px/1.45 Inter, system-ui, sans-serif; color: #b9b1d6; }
+.tp-redes, .tp-turnos, .tp-ideas { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.tp-redes li { display: flex; align-items: center; gap: 10px; background: #262138; border-radius: 12px; padding: 8px 10px; }
+.tp-badge { width: 30px; height: 22px; border-radius: 6px; display: grid; place-items: center; font: 900 10px Inter, sans-serif; color: #14111f; flex: none; }
+.tp-red { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.tp-red b { font: 700 13px Inter, sans-serif; }
+.tp-red small { font: 600 11px Inter, sans-serif; color: #b9b1d6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tp-num { font: 900 20px Inter, sans-serif; font-variant-numeric: tabular-nums; }
+.tp-fase { background: #262138; border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
+.tp-fase-n { margin: 0; font: 800 13px Inter, sans-serif; color: #ffd36b; }
+.tp-linea { display: flex; justify-content: space-between; gap: 8px; font: 600 12px Inter, sans-serif; color: #c9c2e6; }
+.tp-linea b { color: #fff; font-variant-numeric: tabular-nums; }
+.tp-barra { position: relative; height: 9px; border-radius: 9px; background: #3a3354; overflow: visible; }
+.tp-barra i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 9px; }
+.tp-barra b { position: absolute; top: -3px; width: 2px; height: 15px; background: #ffd36b; }
+.tp-estado { margin: 0; font: 800 13px/1.3 Inter, sans-serif; padding: 9px 12px; border-radius: 12px; background: #262138; }
+.tp-estado.ok { background: #12453a; } .tp-estado.mal { background: #5a1830; }
+.tp-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.tp-nums div { background: #262138; border-radius: 12px; padding: 9px 10px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.tp-nums b { font: 900 21px/1.1 Inter, sans-serif; font-variant-numeric: tabular-nums; color: var(--ac); }
+.tp-nums span { font: 600 11px/1.25 Inter, sans-serif; color: #b9b1d6; }
+.tp-turnos li { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: baseline; font: 600 13px Inter, sans-serif; border-bottom: 1px solid #2f2944; padding-bottom: 6px; }
+.tp-turnos small { color: #b9b1d6; font-size: 11px; min-width: 52px; text-align: right; }
+.tp-reloj { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.tp-reloj div { background: linear-gradient(160deg, #ff6fae, #ffb36b); border-radius: 14px; padding: 10px 6px; text-align: center; color: #1e1a2e; }
+.tp-reloj b { display: block; font: 900 34px/1 Inter, sans-serif; font-variant-numeric: tabular-nums; }
+.tp-reloj span { font: 800 11px Inter, sans-serif; text-transform: uppercase; letter-spacing: .06em; }
+.tp-top { display: flex; flex-direction: column; gap: 3px; background: #262138; border-radius: 12px; padding: 10px 12px; color: #fff; text-decoration: none; }
+.tp-top small { font: 700 11px Inter, sans-serif; color: #ffd36b; }
+.tp-top b { font: 700 13px/1.3 Inter, sans-serif; }
+.tp-top span { font: 600 12px Inter, sans-serif; color: #b9b1d6; }
+.tp-ideas li { font: 600 13px/1.45 Inter, sans-serif; padding-left: 22px; position: relative; color: #e8e3fa; }
+.tp-ideas li::before { content: "→"; position: absolute; left: 0; color: var(--ac); font-weight: 900; }
