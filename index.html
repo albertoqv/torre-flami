@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1e1a2e">
+<title>Torre Flami</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icono-192.png">
+<link rel="apple-touch-icon" href="icono-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #15121f; --panel: #1e1a2e; --linea: #2f2944; --texto: #fff; --suave: #b9b1d6; --rosa: #ff6fae; --turq: #4ff0e0; --oro: #ffd36b; --ok: #39d98a; --mal: #ff5a6e; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--texto); font-family: Inter, system-ui, sans-serif; }
+body { padding: max(14px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left)); }
+header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+h1 { font: 900 22px/1 Inter, sans-serif; margin: 0; letter-spacing: -.01em; }
+h1 span { color: var(--rosa); }
+.act { font: 600 11px/1.3 Inter, sans-serif; color: var(--suave); text-align: right; }
+button.recargar { background: var(--panel); color: var(--texto); border: 1px solid var(--linea); border-radius: 10px; padding: 8px 10px; font: 700 12px Inter, sans-serif; }
+.chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 12px; }
+@media (min-width: 700px) { .chips { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.chip { background: var(--panel); border-radius: 14px; padding: 10px 12px; min-width: 0; }
+.chip b { display: block; font: 800 22px/1.15 Inter, sans-serif; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chip span { font: 600 11px Inter, sans-serif; color: var(--suave); }
+.chip.ok { background: #12453a; } .chip.mal { background: #5a1830; }
+.marco { overflow-x: auto; border-radius: 18px; -webkit-overflow-scrolling: touch; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+.tc-ofi { position: relative; width: 100%; aspect-ratio: 760 / 500; background: #1e1a2e; }
+@media (max-width: 640px) { .tc-ofi { width: 760px; } }
+.tc-ofi canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tc-ofi-capa { position: absolute; inset: 0; pointer-events: none; }
+.tc-tag { position: absolute; transform: translate(-50%, 0); background: rgba(30,26,46,.88); color: #fff; font: 700 12px/1 Inter, sans-serif; padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
+.tc-burbuja { position: absolute; transform: translate(-50%, -100%); background: #fff; color: #2b2540; border-radius: 10px; padding: 3px 8px; font: 700 11.5px/1.2 Inter, sans-serif; white-space: nowrap; box-shadow: 0 3px 8px rgba(30,20,60,.25); }
+.tc-burbuja::after { content: ""; position: absolute; left: 50%; bottom: -5px; margin-left: -5px; border: 5px solid transparent; border-top-color: #fff; border-bottom: 0; }
+.tc-burbuja[data-s="bad"] { background: #ffe1e1; color: #8a1c1c; } .tc-burbuja[data-s="bad"]::after { border-top-color: #ffe1e1; }
+.tc-sello { position: absolute; right: 2%; bottom: 3%; background: rgba(30,26,46,.85); color: #fff; font: 700 11.5px/1 Inter, sans-serif; padding: 5px 9px; border-radius: 8px; }
+h2 { font: 800 15px Inter, sans-serif; margin: 18px 0 8px; }
+.lista { display: flex; flex-direction: column; gap: 6px; }
+.fila { display: flex; align-items: center; gap: 10px; background: var(--panel); border-radius: 12px; padding: 9px 12px; text-decoration: none; color: inherit; }
+.fila .t { flex: 1; min-width: 0; font: 600 13px/1.3 Inter, sans-serif; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fila .n { font: 800 14px Inter, sans-serif; font-variant-numeric: tabular-nums; }
+.fila .c { font: 700 10px Inter, sans-serif; padding: 2px 6px; border-radius: 6px; background: #2f2944; color: var(--suave); }
+.aviso { font: 600 12px/1.4 Inter, sans-serif; color: var(--suave); margin-top: 16px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Torre <span>Flami</span> 🦩</h1>
+  <div style="display:flex;gap:8px;align-items:center"><div class="act" id="act">Cargando…</div><button class="recargar" id="recargar" aria-label="Actualizar">↻</button></div>
+</header>
+<div class="chips" id="chips"></div>
+<div class="marco" id="marco"><div class="tc-ofi" id="oficina"></div></div>
+<h2>Los vídeos que más tiran</h2>
+<div class="lista" id="top"></div>
+<h2>Últimos publicados</h2>
+<div class="lista" id="ultimos"></div>
+<p class="aviso">Los datos los recoge tu PC cada 20 minutos mientras está encendido y esta app los lee cada pocos minutos. Las notificaciones te llegan por ntfy.</p>
+
+<script>
+// Datos de la app → la misma interfaz que usa la oficina del panel de Claude
+let APP = null;
+const fmt = (v) => (v == null || isNaN(v) ? '…' : new Intl.NumberFormat('es-ES').format(v));
+const horas = (s) => (s ? (Date.now() - new Date(s)) / 3600000 : Infinity);
+
+function tablas(a) {
+  const c = a.cola || {}, vids = a.videos || [], r = a.redes || {};
+  const es = vids.filter((v) => (v.canal || 'es') === 'es');
+  const minPc = c.pc_ultima ? (Date.now() - new Date(c.pc_ultima)) / 60000 : null;
+  return {
+    totales: [{ vistas: es.reduce((s, v) => s + (v.vistas || 0), 0), likes: es.reduce((s, v) => s + (v.likes || 0), 0), videos: es.length,
+      vistas_br: vids.filter((v) => v.canal === 'pt').reduce((s, v) => s + (v.vistas || 0), 0) }],
+    redes: [
+      { red: 'YouTube', seguidores: r.youtube ?? null }, { red: 'TikTok', seguidores: r.tiktok ? r.tiktok.seguidores : null },
+      { red: 'Instagram', seguidores: r.instagram ? r.instagram.seguidores : null }, { red: 'YouTube Brasil', seguidores: r.youtube_pt ?? null }],
+    cola: [{ guiones: c.guiones_pendientes || 0, listos: c.listos_para_subir || 0 }],
+    pc_estado: [{ estado: minPc == null ? 'Sin datos' : minPc <= 45 ? 'Trabajando' : 'Apagado' }],
+    agentes: [
+      { id: 'guionista', activo: true, ultima: c.ultima_guion, resultado: horas(c.ultima_guion) < 26 ? 'ok' : 'falló' },
+      { id: 'publicador', activo: true, ultima: c.ultima_publicacion, resultado: (c.listos_para_subir || 0) === 0 || horas(c.ultima_publicacion) < 13 ? 'ok' : 'falló' },
+      { id: 'analista', activo: true, ultima: c.ultima_estrategia, resultado: 'ok' }],
+    videos: vids,
+    historico: (a.historico || []).map((h) => ({ hora: h.hora, vistas: h.vistas })),
+    pendientes: (c.proximos || []).map((n) => ({ nombre: n })),
+    publicados: new Array(c.publicados || 0).fill({})
+  };
+}
+
+const dibujos = {};
+window.dash = {
+  data: (id) => (APP ? { status: 'ok', data: tablas(APP)[id] || [] } : { status: 'loading', data: [] }),
+  draw: (nombre, def) => { dibujos[nombre] = def; },
+  colors: ['#ff6fae', '#4ff0e0', '#ffd36b']
+};
+</script>
+<script src="oficina.js"></script>
+<script>
+dash.draw('oficina', window.tcOfi);
+const el = document.getElementById('oficina');
+const st = dibujos.oficina.mount(el);
+
+function pintarResto() {
+  const t = tablas(APP);
+  const T = t.totales[0], pc = t.pc_estado[0].estado;
+  const seg = t.redes.reduce((s, x) => s + (Number(x.seguidores) || 0), 0);
+  const chips = [['👁 ' + fmt(T.vistas), 'visualizaciones', ''], ['❤ ' + fmt(T.likes), 'likes', ''], ['👥 ' + fmt(seg), 'seguidores en total', ''],
+    [pc === 'Trabajando' ? '🟢 PC' : pc === 'Apagado' ? '🔴 PC' : '… PC', pc === 'Apagado' ? 'apagado: enciéndelo' : pc === 'Trabajando' ? 'trabajando' : 'sin datos', pc === 'Apagado' ? 'mal' : pc === 'Trabajando' ? 'ok' : '']];
+  document.getElementById('chips').replaceChildren(...chips.map(([b, s, c]) => {
+    const d = document.createElement('div'); d.className = 'chip ' + c;
+    const bb = document.createElement('b'); bb.textContent = b; const sp = document.createElement('span'); sp.textContent = s; d.append(bb, sp); return d;
+  }));
+  const fila = (v) => {
+    const a = document.createElement('a'); a.className = 'fila'; a.href = 'https://youtube.com/shorts/' + v.id; a.target = '_blank'; a.rel = 'noopener';
+    const t1 = document.createElement('span'); t1.className = 't'; t1.textContent = v.titulo;
+    const c = document.createElement('span'); c.className = 'c'; c.textContent = v.canal === 'pt' ? 'BR' : 'ES';
+    const n = document.createElement('span'); n.className = 'n'; n.textContent = fmt(v.vistas);
+    a.append(t1, c, n); return a;
+  };
+  document.getElementById('top').replaceChildren(...[...t.videos].sort((a, b) => b.vistas - a.vistas).slice(0, 5).map(fila));
+  document.getElementById('ultimos').replaceChildren(...[...t.videos].sort((a, b) => String(b.publicado).localeCompare(String(a.publicado))).slice(0, 6).map(fila));
+  const act = APP.actualizado ? new Date(APP.actualizado) : null;
+  document.getElementById('act').textContent = act ? 'Datos de las ' + act.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }) : 'Sin datos aún';
+}
+
+async function cargar() {
+  try {
+    const r = await fetch('data/app.json?t=' + Date.now(), { cache: 'no-store' });
+    APP = await r.json();
+    dibujos.oficina.update(el, st);
+    pintarResto();
+  } catch (e) { document.getElementById('act').textContent = 'Sin conexión'; }
+}
+document.getElementById('recargar').onclick = cargar;
+document.addEventListener('visibilitychange', () => { if (!document.hidden) cargar(); });
+cargar();
+setInterval(cargar, 120000);
+const marco = document.getElementById('marco');
+if (marco.scrollWidth > marco.clientWidth) marco.scrollLeft = (marco.scrollWidth - marco.clientWidth) * 0.45;
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>
