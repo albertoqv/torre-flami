@@ -65,9 +65,11 @@ window.tcOfi = (() => {
     const ahora = new Date(), des = madrid(ahora) - ahora;
     const hoy = madrid(ahora); hoy.setHours(6, 50, 0, 0); const llegada = new Date(hoy - des);
     const sinVer = ultPc && ahora > llegada && new Date(ultPc) < llegada;
-    if (pce === 'Trabajando') return guiones > 0 ? ['DÉJALO ENCENDIDO', `Está montando ${guiones} vídeo${guiones > 1 ? 's' : ''}`, '#7df9c8'] : ['PUEDES APAGARLO', 'Todo montado. Mañana a las 7:00 hay más', '#8fb4ff'];
+    const dia = madrid(ahora).getDay(), finde = dia === 0 || dia === 6;
+    if (finde && pce !== 'Trabajando') return ['FIN DE SEMANA', 'No hace falta: el viernes quedó todo listo', '#ffd36b'];
+    if (pce === 'Trabajando') return guiones > 0 ? ['DÉJALO ENCENDIDO', `Está montando ${guiones} vídeo${guiones > 1 ? 's' : ''}`, '#7df9c8'] : ['PUEDES APAGARLO', 'Todo montado. Mañana a las 8:30 hay más', '#8fb4ff'];
     if (guiones > 0 || sinVer) return ['¡ENCIÉNDELO!', guiones > 0 ? `${guiones} guion${guiones > 1 ? 'es' : ''} esperando` : 'Han llegado los guiones de hoy', '#ff7a8a'];
-    if (pce === 'Apagado') return listos > 0 ? ['NO HACE FALTA', `${listos} vídeos listos se suben solos`, '#ffd36b'] : ['A LAS 7:00', 'Enciéndelo cuando lleguen guiones', '#ffd36b'];
+    if (pce === 'Apagado') return listos > 0 ? ['NO HACE FALTA', `${listos} vídeos listos se suben solos`, '#ffd36b'] : ['A LAS 8:30', 'Enciéndelo al llegar a clase', '#ffd36b'];
     return ['SIN DATOS', 'Enciéndelo para saber cómo va', '#c9c2e6'];
   }
 
