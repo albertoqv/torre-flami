@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-17T15:51:18+01:00",
+ "actualizado": "2026-11-17T19:25:57+01:00",
  "cola": {
   "guiones_pendientes": 0,
   "proximos": [],
@@ -8,7 +8,7 @@
   "ultima_guion": "2026-11-17T06:48:43+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-17T14:54:05+01:00",
-  "pc_ultima": "2026-11-17T15:51:18+01:00",
+  "pc_ultima": "2026-11-17T19:25:57+01:00",
   "pc_version": "v30"
  },
  "videos": [
@@ -43,7 +43,7 @@
    "id": "Tmp4WVhTqac",
    "titulo": "¿Sale GTA 6 en PC? Lo que se sabe a 3 días del lanzamiento 💻",
    "publicado": "2026-11-17T07:51:06+00:00",
-   "vistas": 110,
+   "vistas": 113,
    "likes": 5,
    "short": true,
    "canal": "es"
@@ -70,7 +70,7 @@
    "id": "0yTpvEnJ1kY",
    "titulo": "GTA 6 pesa hasta 212 GB: ¿te cabe en la consola? 💾",
    "publicado": "2026-11-16T16:00:11+00:00",
-   "vistas": 48,
+   "vistas": 49,
    "likes": 2,
    "short": true,
    "canal": "es"
@@ -157,6 +157,12 @@
    "vistas": 3754,
    "likes": 58,
    "videos": 11
+  },
+  {
+   "hora": "2026-11-17T19:00",
+   "vistas": 3810,
+   "likes": 61,
+   "videos": 12
   }
  ],
  "redes": {
