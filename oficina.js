@@ -2,7 +2,7 @@
 // Se arrastra para moverse, se pellizca (o rueda) para acercarse y se toca un vídeo del cine para verlo.
 window.tcOfi = (() => {
   const GX = 28, GY = 29, TW = 64, TH = 32, MURO = 190, BAJO = 30;
-  const OX = 968, OY = 340, LW = 1864, LH = 1300;
+  const OX = 968, OY = 420, LW = 1864, LH = 1380;
   const iso = (gx, gy, z = 0) => ({ x: OX + (gx - gy) * TW / 2, y: OY + (gx + gy) * TH / 2 - z });
   const ESTRENO = new Date('2026-11-19T00:00:00+01:00');
   const SPR = window.TC_SPR || {};
@@ -27,6 +27,7 @@ window.tcOfi = (() => {
     fabrica: { sala: 'plato', p: 'flami', mesa: [2.3, 11.4], sofa: [5.3, 9.4], chill: [14.2, 15.4] },
     publicador: { sala: 'publicacion', p: 'manolo', mesa: [2.9, 17.6], sofa: [5.3, 20.6], chill: [18.4, 14.8] }
   };
+  const NOMBRES = { analista: 'Don Caimán · analista', guionista: 'Rocco · guionista', fabrica: 'Flami · fábrica', publicador: 'Manolo · publicador' };
   const MODO = { trabaja: '#2fbf71', relax: '#e8a93a', duerme: '#9a92c8', alerta: '#ff5d70' };
 
   // ---------- utilidades ----------
@@ -117,6 +118,16 @@ window.tcOfi = (() => {
     rr(c, 0, 0, w, 40, 10, 'rgba(36,28,58,.92)');
     txF(c, s.n, 12, 18, (z) => R(700, z), 17, w - 24, '#ffffff');
     txF(c, s.sub, 12, 33, (z) => R(500, z), 12, w - 24, '#cfc6ee');
+  }
+  // cabecera derecha encima de cada sala: nombre grande y para qué sirve
+  function cabecera(c, s) {
+    const p = s.muro === 'fondo' ? iso(s.x + 3.5, 0, MURO + 34) : iso(0, s.y + 3.5, MURO + 34);
+    c.font = R(700, 19); const w1 = c.measureText(s.n).width; c.font = R(500, 13); const w2 = c.measureText(s.sub).width;
+    const w = Math.max(w1, w2) + 36, h = 52, x = p.x - w / 2, y = p.y - h;
+    c.shadowColor = 'rgba(20,10,40,.35)'; c.shadowBlur = 12; c.shadowOffsetY = 4; rr(c, x, y, w, h, 14, '#ff6fae'); c.shadowBlur = 0; c.shadowOffsetY = 0;
+    rr(c, x + 3, y + 3, w - 6, h - 6, 11, '#2a2140');
+    tx(c, s.n, p.x, y + 25, R(700, 19), '#ffffff', 'center'); tx(c, s.sub, p.x, y + 42, R(500, 13), '#ffc7e0', 'center');
+    c.beginPath(); c.moveTo(p.x - 8, y + h); c.lineTo(p.x, y + h + 9); c.lineTo(p.x + 8, y + h); c.fillStyle = '#ff6fae'; c.fill();
   }
   function linea(c, x1, x2, y, col = 'rgba(125,249,200,.25)') { c.fillStyle = col; c.fillRect(x1, y, x2 - x1, 1); }
 
@@ -230,7 +241,7 @@ window.tcOfi = (() => {
   }
   function neon(c, t) {
     const w = 360, h = 92, on = Math.sin(t / 420) > -0.85;
-    c.strokeStyle = '#2a2140'; c.lineWidth = 5; [70, w - 70].forEach((x) => { c.beginPath(); c.moveTo(x, h); c.lineTo(x, h + 46); c.stroke(); });
+    c.strokeStyle = '#2a2140'; c.lineWidth = 5; [70, w - 70].forEach((x) => { c.beginPath(); c.moveTo(x, h); c.lineTo(x, h + 136); c.stroke(); });
     rr(c, 0, 0, w, h, 16, '#221a38');
     c.lineWidth = 3; c.strokeStyle = on ? '#ff6fae' : '#6a2a52'; c.shadowColor = '#ff4fa3'; c.shadowBlur = on ? 16 : 0;
     c.beginPath(); c.roundRect(7, 7, w - 14, h - 14, 11); c.stroke();
@@ -270,10 +281,10 @@ window.tcOfi = (() => {
     });
     [7, 14, 21].forEach((gx) => poli(c, [iso(gx - 0.06, 0), iso(gx + 0.06, 0), iso(gx + 0.06, 0, MURO), iso(gx - 0.06, 0, MURO)], '#7a5d9a'));
     [8, 15, 22].forEach((gy) => poli(c, [iso(0, gy - 0.06), iso(0, gy + 0.06), iso(0, gy + 0.06, MURO), iso(0, gy - 0.06, MURO)], '#6a4f88'));
-    enX(c, 8.4, 0, MURO + 150, () => neon(c, t));
+    enX(c, 8.4, 0, MURO + 240, () => neon(c, t));
     const ancho = ANCHO(6.2), mx = (7 - 196 / 32) / 2;
-    const fondo = (s, fn) => { enX(c, s.x + 0.4, 0, MURO - 12, () => letrero(c, s, ancho)); enX(c, s.x + mx, 0, MURO - 64, fn); };
-    const izq = (s, fn) => { enY(c, 0, s.y + s.d - 0.4, MURO - 12, () => letrero(c, s, ancho)); enY(c, 0, s.y + s.d - mx, MURO - 64, fn); };
+    const fondo = (s, fn) => enX(c, s.x + mx, 0, MURO - 30, fn);
+    const izq = (s, fn) => enY(c, 0, s.y + s.d - mx, MURO - 30, fn);
     fondo(SALAS.analisis, () => paredAnalisis(c, D, t));
     fondo(SALAS.guiones, () => paredGuiones(c, D));
     fondo(SALAS.cine, () => paredCine(c, D, t, st));
@@ -281,7 +292,7 @@ window.tcOfi = (() => {
     izq(SALAS.plato, () => paredPlato(c, D, t, modos.fabrica));
     izq(SALAS.publicacion, () => paredPublicacion(c, D, t));
     izq(SALAS.seguidores, () => paredSeguidores(c, D, t));
-    enY(c, 0, 6.6, MURO - 64, () => paredTop(c, D, t));
+    enY(c, 0, 6.6, MURO - 30, () => paredTop(c, D, t));
   }
   function tabiques(add) {
     const col = '#e8def6', tapa = '#8a6db0';
@@ -426,8 +437,16 @@ window.tcOfi = (() => {
       c.drawImage(img, -w / 2, -alto, w, alto); c.restore(); c.globalAlpha = 1;
     }
     a.cab = { x: q.x, y: q.y - alto - bote };
+    a.pie = q;
     if (modo === 'duerme' && !a.anda && !st.quieto) for (let i = 0; i < 3; i++) { const kk = ((t / 1300) + i / 3) % 1; c.globalAlpha = 1 - kk; tx(c, 'z', q.x + 28 + i * 8 + kk * 10, a.cab.y + 20 - kk * 32, R(700, 16 + i * 4), '#5a4b8a'); c.globalAlpha = 1; }
     if (modo === 'alerta' && Math.floor(t / 300) % 2) { c.beginPath(); c.arc(q.x + 34, a.cab.y + 10, 13, 0, 7); c.fillStyle = '#e8445a'; c.fill(); tx(c, '!', q.x + 34, a.cab.y + 17, R(700, 19), '#fff', 'center'); }
+  }
+  function chapa(c, st, k, est) {
+    const a = st.act[k], q = a.pie; if (!q) return;
+    const nom = NOMBRES[k]; c.font = R(600, 13); const wn = c.measureText(nom).width + 30;
+    rr(c, q.x - wn / 2, q.y + 8, wn, 22, 11, 'rgba(42,33,64,.92)');
+    c.beginPath(); c.arc(q.x - wn / 2 + 12, q.y + 19, 4, 0, 7); c.fillStyle = MODO[est.modo] || MODO.relax; c.fill();
+    tx(c, nom, q.x - wn / 2 + 21, q.y + 23.5, R(600, 13), '#ffffff');
   }
   function bocadillo(c, st, k, est) {
     const a = st.act[k]; if (a.anda || !est.txt || !a.cab) return;
@@ -452,7 +471,9 @@ window.tcOfi = (() => {
       [['general', '🏢 Todo'], ['pc', '🔌 PC'], ['seguidores', '👥 Seguidores'], ['cine', '🎬 Vídeos'], ['analisis', '📊 Análisis'], ['guiones', '✍️ Guiones'], ['plato', '🎥 Plató'], ['publicacion', '🚀 Publicación']].forEach(([k, n]) => {
         const b = document.createElement('button'); b.type = 'button'; b.textContent = n; b.onclick = () => ir(k); barra.append(b);
       });
-      el.append(cv, pista, barra); setTimeout(() => pista.classList.add('fuera'), 5000);
+      const zm = document.createElement('div'); zm.className = 'tc-zoom';
+      [['+', 1.35], ['−', 1 / 1.35]].forEach(([n, f]) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = n; b.setAttribute('aria-label', f > 1 ? 'Acercar' : 'Alejar'); b.onclick = () => zoom(f, el.clientWidth / 2, el.clientHeight / 2); zm.append(b); });
+      el.append(cv, pista, barra, zm); setTimeout(() => pista.classList.add('fuera'), 5000);
       const quieto = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
       const st = { cv, D: datos(), act: {}, img: {}, quieto, ult: 0, id: 0, vista: null, enlaces: [] };
       Object.entries(AG).forEach(([k, g]) => { st.act[k] = { x: g.sofa[0], y: g.sofa[1], dir: 1, ruta: [], dest: null }; });
@@ -539,6 +560,8 @@ window.tcOfi = (() => {
           L.push({ d: a.x + a.y + 0.02, f: (c) => personaje(c, st, k, D.est[k] || { modo: 'relax' }, t) });
         });
         L.sort((a, b) => a.d - b.d).forEach((o) => o.f(ctx));
+        Object.values(SALAS).forEach((s) => cabecera(ctx, s));
+        Object.keys(AG).forEach((k) => chapa(ctx, st, k, D.est[k] || {}));
         Object.keys(AG).forEach((k) => bocadillo(ctx, st, k, D.est[k] || {}));
         if (D.act) { const d = new Date(D.act); if (!isNaN(d)) { const p = iso(GX, GY, -40); tx(ctx, 'datos de las ' + d.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }), p.x - 20, p.y + 10, R(500, 16), 'rgba(255,255,255,.7)', 'right'); } }
         if (!st.quieto) st.id = requestAnimationFrame(frame);
