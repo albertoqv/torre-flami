@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-17T15:11:39+01:00",
+ "actualizado": "2026-11-17T15:31:11+01:00",
  "cola": {
   "guiones_pendientes": 0,
   "proximos": [],
@@ -8,15 +8,15 @@
   "ultima_guion": "2026-11-17T06:48:43+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-17T14:54:05+01:00",
-  "pc_ultima": "2026-11-17T15:11:39+01:00",
-  "pc_version": "v29"
+  "pc_ultima": "2026-11-17T15:31:11+01:00",
+  "pc_version": "v30"
  },
  "videos": [
   {
    "id": "Emcq1Eafc-M",
    "titulo": "El Seven Mile Bridge no mide 7 millas 🌉 Cayos de GTA 6 (Parte 1)",
    "publicado": "2026-11-17T13:00:25+00:00",
-   "vistas": 0,
+   "vistas": 4,
    "likes": 0,
    "short": true,
    "canal": "es"
@@ -25,7 +25,7 @@
    "id": "Nm53YHe-fsA",
    "titulo": "Ocean Drive era blanco 🎨 Los colores de Vice City (Parte 1)",
    "publicado": "2026-11-17T10:30:09+00:00",
-   "vistas": 0,
+   "vistas": 2,
    "likes": 0,
    "short": true,
    "canal": "es"
@@ -52,7 +52,7 @@
    "id": "fiVWsriZ-ts",
    "titulo": "La historia real de Miami, la ciudad que inspira Vice City 🌴",
    "publicado": "2026-11-16T19:00:07+00:00",
-   "vistas": 1,
+   "vistas": 2,
    "likes": 1,
    "short": false,
    "canal": "es"
@@ -70,7 +70,7 @@
    "id": "N2E4a0TE8Yc",
    "titulo": "Florida se quedó sin flamencos… y ahora vuelven 🦩",
    "publicado": "2026-11-16T14:06:32+00:00",
-   "vistas": 2,
+   "vistas": 3,
    "likes": 1,
    "short": true,
    "canal": "es"
@@ -79,7 +79,7 @@
    "id": "bHS2bsl38gs",
    "titulo": "GTA 6 trae su propio disco: 34 canciones nuevas 🎵",
    "publicado": "2026-11-16T13:00:08+00:00",
-   "vistas": 1150,
+   "vistas": 1152,
    "likes": 7,
    "short": true,
    "canal": "es"
@@ -145,7 +145,7 @@
   },
   {
    "hora": "2026-11-17T15:00",
-   "vistas": 3750,
+   "vistas": 3754,
    "likes": 58,
    "videos": 11
   }
