@@ -39,8 +39,9 @@ def youtube(canal):
         m = re.search(pat, h)
         if m:
             return numero(m.group(1))
-    if re.search(r'"subscriberCountText"', h) is None and "No subscribers" in h:
+    if "No subscribers" in h or '"0 subscribers"' in h:
         return 0
+    print("   youtube sin cifra:", len(h), "bytes", "consent" in h[:3000].lower())
     return None
 
 
