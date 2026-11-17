@@ -1,25 +1,41 @@
 name: Actualizar datos
+# Una ejecución larga que refresca los datos cada 10 minutos durante casi 6 horas y, al acabar,
+# se vuelve a lanzar sola. El cron de cada hora es solo un respaldo por si la cadena se corta.
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: datos
   cancel-in-progress: false
 jobs:
   datos:
     runs-on: ubuntu-latest
+    timeout-minutes: 355
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python scripts/datos.py
-      - name: Guardar si ha cambiado
+      - name: Refrescar cada 10 minutos
         run: |
           git config user.name "flami-bot"
           git config user.email "flami-bot@users.noreply.github.com"
-          git add data/
-          git diff --cached --quiet || (git commit -m "datos $(date -u +%FT%TZ)" && git push)
+          for i in $(seq 1 33); do
+            git pull -q --rebase || true
+            python scripts/datos.py || true
+            git add data/
+            if ! git diff --cached --quiet; then
+              git commit -qm "datos $(date -u +%FT%TZ)"
+              git pull -q --rebase && git push -q || true
+            fi
+            sleep 600
+          done
+      - name: Volver a lanzarse
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run datos.yml --ref main -R ${{ github.repository }}
