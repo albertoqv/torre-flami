@@ -1,15 +1,15 @@
 {
- "actualizado": "2026-11-17T19:31:41+01:00",
+ "actualizado": "2026-11-17T20:01:05+01:00",
  "cola": {
   "guiones_pendientes": 0,
   "proximos": [],
-  "listos_para_subir": 0,
+  "listos_para_subir": 1,
   "publicados": 20,
-  "ultima_guion": "2026-11-17T06:48:43+01:00",
+  "ultima_guion": "2026-11-17T19:35:38+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-17T14:54:05+01:00",
-  "pc_ultima": "2026-11-17T19:31:41+01:00",
-  "pc_version": "v30"
+  "pc_ultima": "2026-11-17T20:01:05+01:00",
+  "pc_version": "v32"
  },
  "videos": [
   {
@@ -163,13 +163,19 @@
    "vistas": 3810,
    "likes": 61,
    "videos": 12
+  },
+  {
+   "hora": "2026-11-17T20:00",
+   "vistas": 3810,
+   "likes": 61,
+   "videos": 12
   }
  ],
  "redes": {
   "tiktok": {
    "seguidores": 3,
-   "likes": 65,
-   "videos": 13
+   "likes": 66,
+   "videos": 14
   },
   "youtube": 7,
   "instagram": {
