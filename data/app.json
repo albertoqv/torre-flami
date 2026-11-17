@@ -1,14 +1,14 @@
 {
- "actualizado": "2026-11-17T20:01:05+01:00",
+ "actualizado": "2026-11-17T20:11:12+01:00",
  "cola": {
   "guiones_pendientes": 0,
   "proximos": [],
-  "listos_para_subir": 1,
+  "listos_para_subir": 0,
   "publicados": 20,
   "ultima_guion": "2026-11-17T19:35:38+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-17T14:54:05+01:00",
-  "pc_ultima": "2026-11-17T20:01:05+01:00",
+  "pc_ultima": "2026-11-17T20:11:12+01:00",
   "pc_version": "v32"
  },
  "videos": [
@@ -166,7 +166,7 @@
   },
   {
    "hora": "2026-11-17T20:00",
-   "vistas": 3810,
+   "vistas": 3814,
    "likes": 61,
    "videos": 12
   }
