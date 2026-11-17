@@ -1,17 +1,26 @@
 {
- "actualizado": "2026-11-17T12:11:23+01:00",
+ "actualizado": "2026-11-17T15:11:39+01:00",
  "cola": {
   "guiones_pendientes": 0,
-  "proximos": null,
-  "listos_para_subir": 4,
-  "publicados": null,
-  "ultima_guion": null,
-  "ultima_publicacion": null,
-  "ultima_estrategia": null,
-  "pc_ultima": null,
-  "pc_version": null
+  "proximos": [],
+  "listos_para_subir": 0,
+  "publicados": 20,
+  "ultima_guion": "2026-11-17T06:48:43+01:00",
+  "ultima_publicacion": "2026-11-17T10:17:33+01:00",
+  "ultima_estrategia": "2026-11-17T14:54:05+01:00",
+  "pc_ultima": "2026-11-17T15:11:39+01:00",
+  "pc_version": "v29"
  },
  "videos": [
+  {
+   "id": "Emcq1Eafc-M",
+   "titulo": "El Seven Mile Bridge no mide 7 millas 🌉 Cayos de GTA 6 (Parte 1)",
+   "publicado": "2026-11-17T13:00:25+00:00",
+   "vistas": 0,
+   "likes": 0,
+   "short": true,
+   "canal": "es"
+  },
   {
    "id": "Nm53YHe-fsA",
    "titulo": "Ocean Drive era blanco 🎨 Los colores de Vice City (Parte 1)",
@@ -25,8 +34,8 @@
    "id": "Tmp4WVhTqac",
    "titulo": "¿Sale GTA 6 en PC? Lo que se sabe a 3 días del lanzamiento 💻",
    "publicado": "2026-11-17T07:51:06+00:00",
-   "vistas": 34,
-   "likes": 3,
+   "vistas": 77,
+   "likes": 4,
    "short": true,
    "canal": "es"
   },
@@ -34,7 +43,7 @@
    "id": "KsONT2FT5LQ",
    "titulo": "GTA 6 llega 13 años después de GTA 5: la espera en cifras ⏳",
    "publicado": "2026-11-16T19:00:28+00:00",
-   "vistas": 3,
+   "vistas": 4,
    "likes": 1,
    "short": true,
    "canal": "es"
@@ -53,7 +62,7 @@
    "titulo": "GTA 6 pesa hasta 212 GB: ¿te cabe en la consola? 💾",
    "publicado": "2026-11-16T16:00:11+00:00",
    "vistas": 41,
-   "likes": 1,
+   "likes": 2,
    "short": true,
    "canal": "es"
   },
@@ -70,7 +79,7 @@
    "id": "bHS2bsl38gs",
    "titulo": "GTA 6 trae su propio disco: 34 canciones nuevas 🎵",
    "publicado": "2026-11-16T13:00:08+00:00",
-   "vistas": 1142,
+   "vistas": 1150,
    "likes": 7,
    "short": true,
    "canal": "es"
@@ -79,7 +88,7 @@
    "id": "gdb3onnsC9E",
    "titulo": "¿A qué hora sale GTA 6 en España y Latinoamérica? 🕛",
    "publicado": "2026-11-16T10:51:08+00:00",
-   "vistas": 1066,
+   "vistas": 1068,
    "likes": 22,
    "short": true,
    "canal": "es"
@@ -118,16 +127,36 @@
   },
   {
    "hora": "2026-11-17T12:00",
-   "vistas": 3696,
-   "likes": 56,
+   "vistas": 3739,
+   "likes": 58,
    "videos": 10
+  },
+  {
+   "hora": "2026-11-17T13:00",
+   "vistas": 3749,
+   "likes": 58,
+   "videos": 10
+  },
+  {
+   "hora": "2026-11-17T14:00",
+   "vistas": 3750,
+   "likes": 58,
+   "videos": 11
+  },
+  {
+   "hora": "2026-11-17T15:00",
+   "vistas": 3750,
+   "likes": 58,
+   "videos": 11
   }
  ],
  "redes": {
   "tiktok": {
    "seguidores": 2,
    "likes": 52,
-   "videos": 10
-  }
- }
+   "videos": 12
+  },
+  "youtube": 7
+ },
+ "nombre": "Fuera del Mapa"
 }
