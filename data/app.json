@@ -1,1 +1,133 @@
-{"actualizado":null,"cola":{},"videos":[],"historico":[],"redes":{}}
+{
+ "actualizado": "2026-11-17T12:11:23+01:00",
+ "cola": {
+  "guiones_pendientes": 0,
+  "proximos": null,
+  "listos_para_subir": 4,
+  "publicados": null,
+  "ultima_guion": null,
+  "ultima_publicacion": null,
+  "ultima_estrategia": null,
+  "pc_ultima": null,
+  "pc_version": null
+ },
+ "videos": [
+  {
+   "id": "Nm53YHe-fsA",
+   "titulo": "Ocean Drive era blanco 🎨 Los colores de Vice City (Parte 1)",
+   "publicado": "2026-11-17T10:30:09+00:00",
+   "vistas": 0,
+   "likes": 0,
+   "short": true,
+   "canal": "es"
+  },
+  {
+   "id": "Tmp4WVhTqac",
+   "titulo": "¿Sale GTA 6 en PC? Lo que se sabe a 3 días del lanzamiento 💻",
+   "publicado": "2026-11-17T07:51:06+00:00",
+   "vistas": 34,
+   "likes": 3,
+   "short": true,
+   "canal": "es"
+  },
+  {
+   "id": "KsONT2FT5LQ",
+   "titulo": "GTA 6 llega 13 años después de GTA 5: la espera en cifras ⏳",
+   "publicado": "2026-11-16T19:00:28+00:00",
+   "vistas": 3,
+   "likes": 1,
+   "short": true,
+   "canal": "es"
+  },
+  {
+   "id": "fiVWsriZ-ts",
+   "titulo": "La historia real de Miami, la ciudad que inspira Vice City 🌴",
+   "publicado": "2026-11-16T19:00:07+00:00",
+   "vistas": 1,
+   "likes": 1,
+   "short": false,
+   "canal": "es"
+  },
+  {
+   "id": "0yTpvEnJ1kY",
+   "titulo": "GTA 6 pesa hasta 212 GB: ¿te cabe en la consola? 💾",
+   "publicado": "2026-11-16T16:00:11+00:00",
+   "vistas": 41,
+   "likes": 1,
+   "short": true,
+   "canal": "es"
+  },
+  {
+   "id": "N2E4a0TE8Yc",
+   "titulo": "Florida se quedó sin flamencos… y ahora vuelven 🦩",
+   "publicado": "2026-11-16T14:06:32+00:00",
+   "vistas": 2,
+   "likes": 1,
+   "short": true,
+   "canal": "es"
+  },
+  {
+   "id": "bHS2bsl38gs",
+   "titulo": "GTA 6 trae su propio disco: 34 canciones nuevas 🎵",
+   "publicado": "2026-11-16T13:00:08+00:00",
+   "vistas": 1142,
+   "likes": 7,
+   "short": true,
+   "canal": "es"
+  },
+  {
+   "id": "gdb3onnsC9E",
+   "titulo": "¿A qué hora sale GTA 6 en España y Latinoamérica? 🕛",
+   "publicado": "2026-11-16T10:51:08+00:00",
+   "vistas": 1066,
+   "likes": 22,
+   "short": true,
+   "canal": "es"
+  },
+  {
+   "id": "bmEpVMNEA1Q",
+   "titulo": "El río de Florida que avanza 30 metros al día 🐊",
+   "publicado": "2026-11-16T10:50:58+00:00",
+   "vistas": 300,
+   "likes": 8,
+   "short": true,
+   "canal": "es"
+  },
+  {
+   "id": "9lGiLBehcJs",
+   "titulo": "La montaña más alta de Florida mide 105 metros 🏔️",
+   "publicado": "2026-11-15T22:56:09+00:00",
+   "vistas": 1107,
+   "likes": 12,
+   "short": true,
+   "canal": "es"
+  }
+ ],
+ "historico": [
+  {
+   "hora": "2026-11-17T10:00",
+   "vistas": 3690,
+   "likes": 56,
+   "videos": 9
+  },
+  {
+   "hora": "2026-11-17T11:00",
+   "vistas": 3691,
+   "likes": 56,
+   "videos": 10
+  },
+  {
+   "hora": "2026-11-17T12:00",
+   "vistas": 3696,
+   "likes": 56,
+   "videos": 10
+  }
+ ],
+ "redes": {
+  "tiktok": {
+   "seguidores": 2,
+   "likes": 52,
+   "videos": 10
+  }
+ }
+}
