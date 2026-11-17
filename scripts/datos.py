@@ -90,6 +90,38 @@ def completar_redes(redes, p):
     return redes
 
 
+def rss(canal, idioma):
+    """Visualizaciones y likes al momento desde el feed público de YouTube (no hace falta el PC)."""
+    import xml.etree.ElementTree as ET
+    ns = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015", "m": "http://search.yahoo.com/mrss/"}
+    raiz = ET.fromstring(web(f"https://www.youtube.com/feeds/videos.xml?channel_id={canal}").encode("utf-8"))
+    salida = []
+    for e in raiz.findall("a:entry", ns):
+        com = e.find("m:group/m:community", ns)
+        st = com.find("m:statistics", ns) if com is not None else None
+        ra = com.find("m:starRating", ns) if com is not None else None
+        enlace = e.find("a:link", ns)
+        salida.append({"id": e.findtext("yt:videoId", "", ns), "titulo": e.findtext("a:title", "", ns), "publicado": e.findtext("a:published", "", ns),
+                       "vistas": int(st.get("views", 0)) if st is not None else 0, "likes": int(ra.get("count", 0)) if ra is not None else 0,
+                       "short": "/shorts/" in (enlace.get("href", "") if enlace is not None else ""), "canal": idioma})
+    return salida
+
+
+def refrescar_videos(videos, p):
+    por_id = {v["id"]: v for v in videos}
+    for clave, idioma in (("youtube", "es"), ("youtube_pt", "pt")):
+        if not p.get(clave):
+            continue
+        try:
+            for v in rss(p[clave], idioma):
+                previo = por_id.get(v["id"], {})
+                por_id[v["id"]] = {**previo, **v, "vistas": max(v["vistas"], previo.get("vistas") or 0)}
+            print("  rss", idioma, "ok")
+        except Exception as e:
+            print("  rss", idioma, "error", str(e)[:100])
+    return sorted(por_id.values(), key=lambda v: v.get("publicado") or "", reverse=True)[:60]
+
+
 def generar(d):
 
     cola = d.get("cola", {})
@@ -120,6 +152,7 @@ for i, p in enumerate(PROYECTOS):
         except Exception:
             previas = {}
         salida["redes"] = completar_redes({**previas, **salida["redes"]}, p)
+        salida["videos"] = refrescar_videos(salida["videos"], p)
     except Exception as e:  # un proyecto caído no tumba a los demás
         print("error", p["slug"], e)
         continue
