@@ -62,10 +62,14 @@ function tablas(a) {
 }
 window.dash = { data: (id) => (APP ? { status: 'ok', data: tablas(APP)[id] || [] } : { status: 'loading', data: [] }) };
 </script>
+<script src="lib/three.min.js"></script>
+<script src="lib/OrbitControls.js"></script>
 <script src="oficina.js"></script>
+<script src="oficina3d.js"></script>
 <script>
 const el = document.getElementById('torre');
-const st = window.tcOfi.mount(el);
+const OFI = window.tcOfi3d && window.tcOfi3d.disponible() ? window.tcOfi3d : window.tcOfi;
+const st = OFI.mount(el);
 let PROYECTO = null;
 try { PROYECTO = localStorage.getItem('proyecto'); } catch (e) {}
 async function proyectos() {
@@ -85,7 +89,7 @@ async function cargar() {
   try {
     const r = await fetch('data/' + (PROYECTO || 'app') + '.json?t=' + Date.now(), { cache: 'no-store' });
     APP = await r.json();
-    window.tcOfi.update(el, st);
+    OFI.update(el, st);
   } catch (e) {}
 }
 document.addEventListener('visibilitychange', () => { if (!document.hidden) cargar(); });

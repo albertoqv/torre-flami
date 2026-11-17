@@ -463,6 +463,9 @@ window.tcOfi = (() => {
   // ---------- montaje, arrastre, zoom y toques ----------
   return {
     LW, LH,
+    // piezas que reutiliza la oficina 3D (oficina3d.js)
+    datos, SALAS, AG, NOMBRES, MODO, puerta,
+    paredes3d: { analisis: paredAnalisis, top: paredTop, guiones: paredGuiones, cine: paredCine, pc: paredPC, plato: paredPlato, publicacion: paredPublicacion, seguidores: paredSeguidores, neon },
     mount(el) {
       el.replaceChildren();
       const cv = document.createElement('canvas');
