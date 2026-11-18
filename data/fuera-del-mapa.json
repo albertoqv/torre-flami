@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-18T11:34:44+01:00",
+ "actualizado": "2026-11-18T11:51:30+01:00",
  "cola": {
   "guiones_pendientes": 1,
   "proximos": [
@@ -10,7 +10,7 @@
   "ultima_guion": "2026-11-18T08:21:14+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-17T14:54:05+01:00",
-  "pc_ultima": "2026-11-18T11:34:44+01:00",
+  "pc_ultima": "2026-11-18T11:51:30+01:00",
   "pc_version": "v35"
  },
  "videos": [
@@ -117,7 +117,7 @@
    "id": "bmEpVMNEA1Q",
    "titulo": "El río de Florida que avanza 30 metros al día 🐊",
    "publicado": "2026-11-16T10:50:58+00:00",
-   "vistas": 309,
+   "vistas": 310,
    "likes": 8,
    "short": true,
    "canal": "es"
@@ -201,7 +201,7 @@
   },
   {
    "hora": "2026-11-18T11:00",
-   "vistas": 3952,
+   "vistas": 3957,
    "likes": 64,
    "videos": 13
   }
@@ -215,7 +215,7 @@
   "youtube": 7,
   "instagram": {
    "seguidores": 0,
-   "publicaciones": 8
+   "publicaciones": 9
   }
  },
  "nombre": "Fuera del Mapa"
