@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-18T10:52:02+01:00",
+ "actualizado": "2026-11-18T11:16:00+01:00",
  "cola": {
   "guiones_pendientes": 1,
   "proximos": [
@@ -10,8 +10,8 @@
   "ultima_guion": "2026-11-18T08:21:14+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-17T14:54:05+01:00",
-  "pc_ultima": "2026-11-18T10:52:02+01:00",
-  "pc_version": "v34"
+  "pc_ultima": "2026-11-18T11:16:00+01:00",
+  "pc_version": "v35"
  },
  "videos": [
   {
@@ -27,7 +27,7 @@
    "id": "Hfs-WSdEn98",
    "titulo": "GTA 6 da una fiesta en Wynwood, el barrio real de Miami 🎨",
    "publicado": "2026-11-17T16:00:07+00:00",
-   "vistas": 4,
+   "vistas": 5,
    "likes": 1,
    "short": true,
    "canal": "es"
@@ -196,6 +196,12 @@
   {
    "hora": "2026-11-18T10:00",
    "vistas": 3951,
+   "likes": 64,
+   "videos": 13
+  },
+  {
+   "hora": "2026-11-18T11:00",
+   "vistas": 3952,
    "likes": 64,
    "videos": 13
   }
