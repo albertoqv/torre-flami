@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-18T21:11:12+01:00",
+ "actualizado": "2026-11-18T21:31:12+01:00",
  "cola": {
   "guiones_pendientes": 0,
   "proximos": [],
@@ -8,7 +8,7 @@
   "ultima_guion": "2026-11-18T13:51:25+01:00",
   "ultima_publicacion": "2026-11-18T14:17:42+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-18T21:11:12+01:00",
+  "pc_ultima": "2026-11-18T21:31:12+01:00",
   "pc_version": "v35.2"
  },
  "videos": [
@@ -16,8 +16,8 @@
    "id": "x068nM02QyI",
    "titulo": "EL MALETÍN DE DON CAIMÁN… ¿LO ABRIRÍAS?",
    "publicado": "2026-11-18T19:00:35+00:00",
-   "vistas": 14,
-   "likes": 0,
+   "vistas": 18,
+   "likes": 1,
    "short": true,
    "canal": "es"
   },
