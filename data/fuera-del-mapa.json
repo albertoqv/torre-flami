@@ -1,17 +1,15 @@
 {
- "actualizado": "2026-11-18T11:51:30+01:00",
+ "actualizado": "2026-11-18T12:15:18+01:00",
  "cola": {
-  "guiones_pendientes": 1,
-  "proximos": [
-   "2026-11-18-prueba-clay"
-  ],
-  "listos_para_subir": 0,
+  "guiones_pendientes": 0,
+  "proximos": [],
+  "listos_para_subir": 1,
   "publicados": 20,
   "ultima_guion": "2026-11-18T08:21:14+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-17T14:54:05+01:00",
-  "pc_ultima": "2026-11-18T11:51:30+01:00",
-  "pc_version": "v35"
+  "pc_ultima": "2026-11-18T12:15:18+01:00",
+  "pc_version": "v35.1"
  },
  "videos": [
   {
@@ -201,6 +199,12 @@
   },
   {
    "hora": "2026-11-18T11:00",
+   "vistas": 3957,
+   "likes": 64,
+   "videos": 13
+  },
+  {
+   "hora": "2026-11-18T12:00",
    "vistas": 3957,
    "likes": 64,
    "videos": 13
