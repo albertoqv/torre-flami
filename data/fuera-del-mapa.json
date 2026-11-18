@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-18T14:51:11+01:00",
+ "actualizado": "2026-11-18T15:11:11+01:00",
  "cola": {
   "guiones_pendientes": 0,
   "proximos": [],
@@ -8,7 +8,7 @@
   "ultima_guion": "2026-11-18T13:51:25+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-18T14:51:11+01:00",
+  "pc_ultima": "2026-11-18T15:11:11+01:00",
   "pc_version": "v35.2"
  },
  "videos": [
@@ -220,6 +220,12 @@
    "vistas": 3958,
    "likes": 64,
    "videos": 13
+  },
+  {
+   "hora": "2026-11-18T15:00",
+   "vistas": 3958,
+   "likes": 64,
+   "videos": 13
   }
  ],
  "redes": {
@@ -231,7 +237,7 @@
   "youtube": 7,
   "instagram": {
    "seguidores": 0,
-   "publicaciones": 9
+   "publicaciones": 8
   }
  },
  "nombre": "Fuera del Mapa"
