@@ -1,17 +1,16 @@
 {
- "actualizado": "2026-11-18T13:34:22+01:00",
+ "actualizado": "2026-11-18T13:57:37+01:00",
  "cola": {
-  "guiones_pendientes": 2,
+  "guiones_pendientes": 1,
   "proximos": [
-   "2026-11-18-voz-02-ximena",
-   "2026-11-18-voz-11-brian"
+   "2026-11-19-a"
   ],
   "listos_para_subir": 2,
   "publicados": 20,
-  "ultima_guion": "2026-11-18T12:45:32+01:00",
+  "ultima_guion": "2026-11-18T13:51:25+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-18T13:34:22+01:00",
+  "pc_ultima": "2026-11-18T13:57:37+01:00",
   "pc_version": "v35.2"
  },
  "videos": [
@@ -19,7 +18,7 @@
    "id": "8JZ8OzIJZUw",
    "titulo": "Miami Vice prohibió el marrón e inspiró Vice City 🌴 (Parte 2)",
    "publicado": "2026-11-17T21:30:21+00:00",
-   "vistas": 7,
+   "vistas": 8,
    "likes": 1,
    "short": true,
    "canal": "es"
