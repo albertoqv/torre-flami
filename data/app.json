@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-18T18:33:28+01:00",
+ "actualizado": "2026-11-18T20:34:33+01:00",
  "cola": {
   "guiones_pendientes": 0,
   "proximos": [],
@@ -8,7 +8,7 @@
   "ultima_guion": "2026-11-18T13:51:25+01:00",
   "ultima_publicacion": "2026-11-18T14:17:42+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-18T18:33:28+01:00",
+  "pc_ultima": "2026-11-18T20:34:33+01:00",
   "pc_version": "v35.2"
  },
  "videos": [
@@ -34,7 +34,7 @@
    "id": "8JZ8OzIJZUw",
    "titulo": "Miami Vice prohibió el marrón e inspiró Vice City 🌴 (Parte 2)",
    "publicado": "2026-11-17T21:30:21+00:00",
-   "vistas": 9,
+   "vistas": 13,
    "likes": 1,
    "short": true,
    "canal": "es"
@@ -70,7 +70,7 @@
    "id": "Tmp4WVhTqac",
    "titulo": "¿Sale GTA 6 en PC? Lo que se sabe a 3 días del lanzamiento 💻",
    "publicado": "2026-11-17T07:51:06+00:00",
-   "vistas": 130,
+   "vistas": 131,
    "likes": 5,
    "short": true,
    "canal": "es"
@@ -142,7 +142,7 @@
    "id": "9lGiLBehcJs",
    "titulo": "La montaña más alta de Florida mide 105 metros 🏔️",
    "publicado": "2026-11-15T22:56:09+00:00",
-   "vistas": 1161,
+   "vistas": 1162,
    "likes": 13,
    "short": true,
    "canal": "es"
@@ -250,6 +250,12 @@
    "vistas": 3960,
    "likes": 64,
    "videos": 13
+  },
+  {
+   "hora": "2026-11-18T20:00",
+   "vistas": 3975,
+   "likes": 64,
+   "videos": 15
   }
  ],
  "redes": {
@@ -261,7 +267,7 @@
   "youtube": 7,
   "instagram": {
    "seguidores": 0,
-   "publicaciones": 8
+   "publicaciones": 10
   }
  },
  "nombre": "Fuera del Mapa"
