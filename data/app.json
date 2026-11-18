@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-18T11:16:00+01:00",
+ "actualizado": "2026-11-18T11:34:44+01:00",
  "cola": {
   "guiones_pendientes": 1,
   "proximos": [
@@ -10,7 +10,7 @@
   "ultima_guion": "2026-11-18T08:21:14+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-17T14:54:05+01:00",
-  "pc_ultima": "2026-11-18T11:16:00+01:00",
+  "pc_ultima": "2026-11-18T11:34:44+01:00",
   "pc_version": "v35"
  },
  "videos": [
@@ -210,7 +210,7 @@
   "tiktok": {
    "seguidores": 3,
    "likes": 69,
-   "videos": 15
+   "videos": 16
   },
   "youtube": 7,
   "instagram": {
