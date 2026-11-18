@@ -1,18 +1,17 @@
 {
- "actualizado": "2026-11-18T13:18:32+01:00",
+ "actualizado": "2026-11-18T13:34:22+01:00",
  "cola": {
-  "guiones_pendientes": 3,
+  "guiones_pendientes": 2,
   "proximos": [
-   "2026-11-18-voz-01-alvaro",
    "2026-11-18-voz-02-ximena",
    "2026-11-18-voz-11-brian"
   ],
-  "listos_para_subir": 1,
+  "listos_para_subir": 2,
   "publicados": 20,
   "ultima_guion": "2026-11-18T12:45:32+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-18T13:18:32+01:00",
+  "pc_ultima": "2026-11-18T13:34:22+01:00",
   "pc_version": "v35.2"
  },
  "videos": [
