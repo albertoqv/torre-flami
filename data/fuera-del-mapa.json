@@ -1,22 +1,22 @@
 {
- "actualizado": "2026-11-17T20:31:30+01:00",
+ "actualizado": "2026-11-18T07:31:26+01:00",
  "cola": {
   "guiones_pendientes": 0,
   "proximos": [],
-  "listos_para_subir": 0,
+  "listos_para_subir": 2,
   "publicados": 20,
-  "ultima_guion": "2026-11-17T19:35:38+01:00",
+  "ultima_guion": "2026-11-18T06:46:19+01:00",
   "ultima_publicacion": "2026-11-17T10:17:33+01:00",
   "ultima_estrategia": "2026-11-17T14:54:05+01:00",
-  "pc_ultima": "2026-11-17T20:31:30+01:00",
-  "pc_version": "v32"
+  "pc_ultima": "2026-11-18T07:31:26+01:00",
+  "pc_version": "v33"
  },
  "videos": [
   {
    "id": "8JZ8OzIJZUw",
    "titulo": "Miami Vice prohibió el marrón e inspiró Vice City 🌴 (Parte 2)",
    "publicado": "2026-11-17T21:30:21+00:00",
-   "vistas": 5,
+   "vistas": 6,
    "likes": 1,
    "short": true,
    "canal": "es"
@@ -34,7 +34,7 @@
    "id": "Emcq1Eafc-M",
    "titulo": "El Seven Mile Bridge no mide 7 millas 🌉 Cayos de GTA 6 (Parte 1)",
    "publicado": "2026-11-17T13:00:25+00:00",
-   "vistas": 17,
+   "vistas": 18,
    "likes": 0,
    "short": true,
    "canal": "es"
@@ -115,7 +115,7 @@
    "id": "bmEpVMNEA1Q",
    "titulo": "El río de Florida que avanza 30 metros al día 🐊",
    "publicado": "2026-11-16T10:50:58+00:00",
-   "vistas": 308,
+   "vistas": 309,
    "likes": 8,
    "short": true,
    "canal": "es"
@@ -178,6 +178,12 @@
    "vistas": 3825,
    "likes": 62,
    "videos": 12
+  },
+  {
+   "hora": "2026-11-18T07:00",
+   "vistas": 3938,
+   "likes": 64,
+   "videos": 13
   }
  ],
  "redes": {
@@ -189,7 +195,7 @@
   "youtube": 7,
   "instagram": {
    "seguidores": 0,
-   "publicaciones": 7
+   "publicaciones": 8
   }
  },
  "nombre": "Fuera del Mapa"
