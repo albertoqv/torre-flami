@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-19T13:37:11+01:00",
+ "actualizado": "2026-11-19T13:51:13+01:00",
  "cola": {
   "guiones_pendientes": 0,
   "proximos": [],
@@ -8,7 +8,7 @@
   "ultima_guion": "2026-11-19T12:17:51+01:00",
   "ultima_publicacion": "2026-11-19T09:58:57+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-19T13:37:11+01:00",
+  "pc_ultima": "2026-11-19T13:51:13+01:00",
   "pc_version": "v35.5"
  },
  "videos": [
@@ -52,7 +52,7 @@
    "id": "8JZ8OzIJZUw",
    "titulo": "Miami Vice prohibió el marrón e inspiró Vice City 🌴 (Parte 2)",
    "publicado": "2026-11-17T21:30:21+00:00",
-   "vistas": 32,
+   "vistas": 38,
    "likes": 3,
    "short": true,
    "canal": "es"
@@ -61,7 +61,7 @@
    "id": "Hfs-WSdEn98",
    "titulo": "GTA 6 da una fiesta en Wynwood, el barrio real de Miami 🎨",
    "publicado": "2026-11-17T16:00:07+00:00",
-   "vistas": 56,
+   "vistas": 64,
    "likes": 4,
    "short": true,
    "canal": "es"
@@ -133,7 +133,7 @@
    "id": "bHS2bsl38gs",
    "titulo": "GTA 6 trae su propio disco: 34 canciones nuevas 🎵",
    "publicado": "2026-11-16T13:00:08+00:00",
-   "vistas": 1279,
+   "vistas": 1280,
    "likes": 7,
    "short": true,
    "canal": "es"
@@ -160,7 +160,7 @@
    "id": "9lGiLBehcJs",
    "titulo": "La montaña más alta de Florida mide 105 metros 🏔️",
    "publicado": "2026-11-15T22:56:09+00:00",
-   "vistas": 1160,
+   "vistas": 1161,
    "likes": 13,
    "short": true,
    "canal": "es"
@@ -303,6 +303,12 @@
    "hora": "2026-11-19T12:00",
    "vistas": 4840,
    "likes": 79,
+   "videos": 17
+  },
+  {
+   "hora": "2026-11-19T13:00",
+   "vistas": 4856,
+   "likes": 80,
    "videos": 17
   }
  ],
