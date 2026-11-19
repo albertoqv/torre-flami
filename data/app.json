@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-19T09:59:44+01:00",
+ "actualizado": "2026-11-19T10:12:19+01:00",
  "cola": {
   "guiones_pendientes": 1,
   "proximos": [
@@ -10,7 +10,7 @@
   "ultima_guion": "2026-11-19T06:45:52+01:00",
   "ultima_publicacion": "2026-11-18T14:17:42+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-19T09:59:44+01:00",
+  "pc_ultima": "2026-11-19T10:12:19+01:00",
   "pc_version": "v35.2"
  },
  "videos": [
@@ -54,7 +54,7 @@
    "id": "8JZ8OzIJZUw",
    "titulo": "Miami Vice prohibió el marrón e inspiró Vice City 🌴 (Parte 2)",
    "publicado": "2026-11-17T21:30:21+00:00",
-   "vistas": 24,
+   "vistas": 26,
    "likes": 2,
    "short": true,
    "canal": "es"
@@ -135,7 +135,7 @@
    "id": "bHS2bsl38gs",
    "titulo": "GTA 6 trae su propio disco: 34 canciones nuevas 🎵",
    "publicado": "2026-11-16T13:00:08+00:00",
-   "vistas": 1274,
+   "vistas": 1275,
    "likes": 7,
    "short": true,
    "canal": "es"
@@ -292,6 +292,12 @@
   {
    "hora": "2026-11-19T09:00",
    "vistas": 4783,
+   "likes": 76,
+   "videos": 17
+  },
+  {
+   "hora": "2026-11-19T10:00",
+   "vistas": 4774,
    "likes": 76,
    "videos": 17
   }
