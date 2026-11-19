@@ -1,17 +1,16 @@
 {
- "actualizado": "2026-11-19T09:31:31+01:00",
+ "actualizado": "2026-11-19T09:59:44+01:00",
  "cola": {
-  "guiones_pendientes": 2,
+  "guiones_pendientes": 1,
   "proximos": [
-   "2026-11-19-c",
    "2026-11-19-d"
   ],
-  "listos_para_subir": 1,
+  "listos_para_subir": 2,
   "publicados": 23,
   "ultima_guion": "2026-11-19T06:45:52+01:00",
   "ultima_publicacion": "2026-11-18T14:17:42+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-19T09:31:31+01:00",
+  "pc_ultima": "2026-11-19T09:59:44+01:00",
   "pc_version": "v35.2"
  },
  "videos": [
@@ -19,7 +18,7 @@
    "id": "A1Qqz2lh-8k",
    "titulo": "¿QUÉ HABÍA EN EL MALETÍN? El plan de un golpe en Vice City",
    "publicado": "2026-11-19T08:00:21+00:00",
-   "vistas": 1,
+   "vistas": 2,
    "likes": 0,
    "short": true,
    "canal": "es"
@@ -292,8 +291,8 @@
   },
   {
    "hora": "2026-11-19T09:00",
-   "vistas": 4772,
-   "likes": 75,
+   "vistas": 4783,
+   "likes": 76,
    "videos": 17
   }
  ],
@@ -301,12 +300,12 @@
   "tiktok": {
    "seguidores": 3,
    "likes": 77,
-   "videos": 20
+   "videos": 18
   },
   "youtube": 8,
   "instagram": {
    "seguidores": 0,
-   "publicaciones": 11
+   "publicaciones": 12
   }
  },
  "nombre": "Fuera del Mapa"
