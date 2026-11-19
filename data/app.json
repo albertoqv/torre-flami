@@ -1,14 +1,18 @@
 {
- "actualizado": "2026-11-18T21:51:20+01:00",
+ "actualizado": "2026-11-19T08:52:22+01:00",
  "cola": {
-  "guiones_pendientes": 0,
-  "proximos": [],
+  "guiones_pendientes": 3,
+  "proximos": [
+   "2026-11-19-b",
+   "2026-11-19-c",
+   "2026-11-19-d"
+  ],
   "listos_para_subir": 0,
   "publicados": 23,
-  "ultima_guion": "2026-11-18T13:51:25+01:00",
+  "ultima_guion": "2026-11-19T06:45:52+01:00",
   "ultima_publicacion": "2026-11-18T14:17:42+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-18T21:51:20+01:00",
+  "pc_ultima": "2026-11-19T08:52:22+01:00",
   "pc_version": "v35.2"
  },
  "videos": [
@@ -16,7 +20,7 @@
    "id": "0mssqYufes4",
    "titulo": "30 MINUTOS PARA GTA 6… Y TE CAE UNA ESTRELLA ⭐",
    "publicado": "2026-11-18T22:30:15+00:00",
-   "vistas": 434,
+   "vistas": 442,
    "likes": 8,
    "short": true,
    "canal": "es"
@@ -52,7 +56,7 @@
    "id": "Hfs-WSdEn98",
    "titulo": "GTA 6 da una fiesta en Wynwood, el barrio real de Miami 🎨",
    "publicado": "2026-11-17T16:00:07+00:00",
-   "vistas": 7,
+   "vistas": 8,
    "likes": 1,
    "short": true,
    "canal": "es"
@@ -124,7 +128,7 @@
    "id": "bHS2bsl38gs",
    "titulo": "GTA 6 trae su propio disco: 34 canciones nuevas 🎵",
    "publicado": "2026-11-16T13:00:08+00:00",
-   "vistas": 1272,
+   "vistas": 1273,
    "likes": 7,
    "short": true,
    "canal": "es"
@@ -151,7 +155,7 @@
    "id": "9lGiLBehcJs",
    "titulo": "La montaña más alta de Florida mide 105 metros 🏔️",
    "publicado": "2026-11-15T22:56:09+00:00",
-   "vistas": 1162,
+   "vistas": 1160,
    "likes": 13,
    "short": true,
    "canal": "es"
@@ -271,18 +275,24 @@
    "vistas": 4011,
    "likes": 65,
    "videos": 15
+  },
+  {
+   "hora": "2026-11-19T08:00",
+   "vistas": 4756,
+   "likes": 74,
+   "videos": 16
   }
  ],
  "redes": {
   "tiktok": {
    "seguidores": 3,
    "likes": 77,
-   "videos": 19
+   "videos": 20
   },
   "youtube": 8,
   "instagram": {
    "seguidores": 0,
-   "publicaciones": 10
+   "publicaciones": 11
   }
  },
  "nombre": "Fuera del Mapa"
