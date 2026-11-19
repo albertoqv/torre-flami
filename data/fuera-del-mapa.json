@@ -1,14 +1,16 @@
 {
- "actualizado": "2026-11-19T12:11:42+01:00",
+ "actualizado": "2026-11-19T12:32:00+01:00",
  "cola": {
-  "guiones_pendientes": 0,
-  "proximos": [],
+  "guiones_pendientes": 1,
+  "proximos": [
+   "2026-11-19-d"
+  ],
   "listos_para_subir": 1,
   "publicados": 25,
-  "ultima_guion": "2026-11-19T06:45:52+01:00",
+  "ultima_guion": "2026-11-19T12:17:51+01:00",
   "ultima_publicacion": "2026-11-19T09:58:57+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-19T12:11:42+01:00",
+  "pc_ultima": "2026-11-19T12:32:00+01:00",
   "pc_version": "v35.4"
  },
  "videos": [
@@ -133,7 +135,7 @@
    "id": "bHS2bsl38gs",
    "titulo": "GTA 6 trae su propio disco: 34 canciones nuevas 🎵",
    "publicado": "2026-11-16T13:00:08+00:00",
-   "vistas": 1274,
+   "vistas": 1279,
    "likes": 7,
    "short": true,
    "canal": "es"
