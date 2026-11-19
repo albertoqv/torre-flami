@@ -13,11 +13,20 @@
  },
  "videos": [
   {
+   "id": "2a0ql6C25iw",
+   "titulo": "GTA 6: TRÊS ESTRELAS E A POLÍCIA SABE SUA ROUPA",
+   "publicado": "2026-11-19T22:30:12+00:00",
+   "vistas": 1,
+   "likes": 0,
+   "short": true,
+   "canal": "pt"
+  },
+  {
    "id": "0TEPI1ZunJE",
    "titulo": "DON CAIMÁN TE ENCARGA UN REPARTO… Y EL PAQUETE SE MUEVE",
    "publicado": "2026-11-19T20:00:20+00:00",
-   "vistas": 12,
-   "likes": 1,
+   "vistas": 31,
+   "likes": 2,
    "short": true,
    "canal": "es"
   },
@@ -25,7 +34,7 @@
    "id": "TJGvpUz1vzM",
    "titulo": "GTA 6: TRES ESTRELLAS Y SABEN CÓMO VAS VESTIDO",
    "publicado": "2026-11-19T16:00:07+00:00",
-   "vistas": 24,
+   "vistas": 44,
    "likes": 1,
    "short": true,
    "canal": "es"
@@ -43,7 +52,7 @@
    "id": "0mssqYufes4",
    "titulo": "30 MINUTOS PARA GTA 6… Y TE CAE UNA ESTRELLA ⭐",
    "publicado": "2026-11-18T22:30:15+00:00",
-   "vistas": 486,
+   "vistas": 489,
    "likes": 12,
    "short": true,
    "canal": "es"
@@ -52,7 +61,7 @@
    "id": "x068nM02QyI",
    "titulo": "EL MALETÍN DE DON CAIMÁN… ¿LO ABRIRÍAS?",
    "publicado": "2026-11-18T19:00:35+00:00",
-   "vistas": 249,
+   "vistas": 246,
    "likes": 2,
    "short": true,
    "canal": "es"
@@ -79,7 +88,7 @@
    "id": "Hfs-WSdEn98",
    "titulo": "GTA 6 da una fiesta en Wynwood, el barrio real de Miami 🎨",
    "publicado": "2026-11-17T16:00:07+00:00",
-   "vistas": 80,
+   "vistas": 82,
    "likes": 4,
    "short": true,
    "canal": "es"
