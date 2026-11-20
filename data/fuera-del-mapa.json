@@ -1,22 +1,38 @@
 {
- "actualizado": "2026-11-19T14:11:12+01:00",
+ "actualizado": "2026-11-20T09:05:15+01:00",
  "cola": {
-  "guiones_pendientes": 0,
-  "proximos": [],
-  "listos_para_subir": 1,
-  "publicados": 25,
-  "ultima_guion": "2026-11-19T12:17:51+01:00",
-  "ultima_publicacion": "2026-11-19T09:58:57+01:00",
+  "guiones_pendientes": 6,
+  "proximos": [
+   "2026-11-20-c",
+   "2026-11-20-d",
+   "2026-11-20-e-pt",
+   "2026-11-20-e",
+   "2026-11-20-f",
+   "2026-11-20-g"
+  ],
+  "listos_para_subir": 2,
+  "publicados": 26,
+  "ultima_guion": "2026-11-20T06:50:04+01:00",
+  "ultima_publicacion": "2026-11-19T12:11:38+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-19T14:11:12+01:00",
+  "pc_ultima": "2026-11-20T09:05:15+01:00",
   "pc_version": "v35.5"
  },
  "videos": [
   {
+   "id": "KN3tuE_9vGI",
+   "titulo": "El maletín de Don Caimán (parte 3): conduces tú el golpe",
+   "publicado": "2026-11-20T08:00:30+00:00",
+   "vistas": 0,
+   "likes": 0,
+   "short": true,
+   "canal": "es"
+  },
+  {
    "id": "2a0ql6C25iw",
    "titulo": "GTA 6: TRÊS ESTRELAS E A POLÍCIA SABE SUA ROUPA",
    "publicado": "2026-11-19T22:30:12+00:00",
-   "vistas": 75,
+   "vistas": 80,
    "likes": 1,
    "short": true,
    "canal": "pt"
@@ -25,7 +41,7 @@
    "id": "0TEPI1ZunJE",
    "titulo": "DON CAIMÁN TE ENCARGA UN REPARTO… Y EL PAQUETE SE MUEVE",
    "publicado": "2026-11-19T20:00:20+00:00",
-   "vistas": 90,
+   "vistas": 91,
    "likes": 3,
    "short": true,
    "canal": "es"
@@ -34,7 +50,7 @@
    "id": "TJGvpUz1vzM",
    "titulo": "GTA 6: TRES ESTRELLAS Y SABEN CÓMO VAS VESTIDO",
    "publicado": "2026-11-19T16:00:07+00:00",
-   "vistas": 81,
+   "vistas": 74,
    "likes": 1,
    "short": true,
    "canal": "es"
@@ -43,7 +59,7 @@
    "id": "A1Qqz2lh-8k",
    "titulo": "¿QUÉ HABÍA EN EL MALETÍN? El plan de un golpe en Vice City",
    "publicado": "2026-11-19T08:00:21+00:00",
-   "vistas": 25,
+   "vistas": 24,
    "likes": 0,
    "short": true,
    "canal": "es"
@@ -52,7 +68,7 @@
    "id": "0mssqYufes4",
    "titulo": "30 MINUTOS PARA GTA 6… Y TE CAE UNA ESTRELLA ⭐",
    "publicado": "2026-11-18T22:30:15+00:00",
-   "vistas": 649,
+   "vistas": 653,
    "likes": 13,
    "short": true,
    "canal": "es"
@@ -61,7 +77,7 @@
    "id": "x068nM02QyI",
    "titulo": "EL MALETÍN DE DON CAIMÁN… ¿LO ABRIRÍAS?",
    "publicado": "2026-11-18T19:00:35+00:00",
-   "vistas": 273,
+   "vistas": 275,
    "likes": 2,
    "short": true,
    "canal": "es"
@@ -79,7 +95,7 @@
    "id": "8JZ8OzIJZUw",
    "titulo": "Miami Vice prohibió el marrón e inspiró Vice City 🌴 (Parte 2)",
    "publicado": "2026-11-17T21:30:21+00:00",
-   "vistas": 39,
+   "vistas": 40,
    "likes": 3,
    "short": true,
    "canal": "es"
@@ -160,7 +176,7 @@
    "id": "bHS2bsl38gs",
    "titulo": "GTA 6 trae su propio disco: 34 canciones nuevas 🎵",
    "publicado": "2026-11-16T13:00:08+00:00",
-   "vistas": 1319,
+   "vistas": 1317,
    "likes": 8,
    "short": true,
    "canal": "es"
@@ -343,18 +359,24 @@
    "vistas": 4856,
    "likes": 80,
    "videos": 17
+  },
+  {
+   "hora": "2026-11-20T09:00",
+   "vistas": 5340,
+   "likes": 90,
+   "videos": 21
   }
  ],
  "redes": {
   "tiktok": {
    "seguidores": 3,
    "likes": 81,
-   "videos": 21
+   "videos": 22
   },
   "youtube": 9,
   "instagram": {
    "seguidores": 0,
-   "publicaciones": 12
+   "publicaciones": 16
   }
  },
  "nombre": "Fuera del Mapa"
