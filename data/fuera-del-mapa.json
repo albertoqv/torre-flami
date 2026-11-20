@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-20T10:11:11+01:00",
+ "actualizado": "2026-11-20T11:22:36+01:00",
  "cola": {
   "guiones_pendientes": 0,
   "proximos": [],
@@ -8,7 +8,7 @@
   "ultima_guion": "2026-11-20T06:50:04+01:00",
   "ultima_publicacion": "2026-11-19T12:11:38+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-20T10:11:11+01:00",
+  "pc_ultima": "2026-11-20T11:22:36+01:00",
   "pc_version": "v35.5"
  },
  "videos": [
@@ -362,6 +362,12 @@
   {
    "hora": "2026-11-20T10:00",
    "vistas": 5362,
+   "likes": 90,
+   "videos": 21
+  },
+  {
+   "hora": "2026-11-20T11:00",
+   "vistas": 5386,
    "likes": 90,
    "videos": 21
   }
