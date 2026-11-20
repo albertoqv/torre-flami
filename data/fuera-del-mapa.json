@@ -1,17 +1,14 @@
 {
- "actualizado": "2026-11-20T09:41:32+01:00",
+ "actualizado": "2026-11-20T10:01:59+01:00",
  "cola": {
-  "guiones_pendientes": 2,
-  "proximos": [
-   "2026-11-20-f",
-   "2026-11-20-g"
-  ],
-  "listos_para_subir": 5,
+  "guiones_pendientes": 0,
+  "proximos": [],
+  "listos_para_subir": 7,
   "publicados": 26,
   "ultima_guion": "2026-11-20T06:50:04+01:00",
   "ultima_publicacion": "2026-11-19T12:11:38+01:00",
   "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-20T09:41:32+01:00",
+  "pc_ultima": "2026-11-20T10:01:59+01:00",
   "pc_version": "v35.5"
  },
  "videos": [
@@ -55,7 +52,7 @@
    "id": "A1Qqz2lh-8k",
    "titulo": "¿QUÉ HABÍA EN EL MALETÍN? El plan de un golpe en Vice City",
    "publicado": "2026-11-19T08:00:21+00:00",
-   "vistas": 24,
+   "vistas": 26,
    "likes": 0,
    "short": true,
    "canal": "es"
@@ -64,7 +61,7 @@
    "id": "0mssqYufes4",
    "titulo": "30 MINUTOS PARA GTA 6… Y TE CAE UNA ESTRELLA ⭐",
    "publicado": "2026-11-18T22:30:15+00:00",
-   "vistas": 653,
+   "vistas": 656,
    "likes": 13,
    "short": true,
    "canal": "es"
@@ -172,7 +169,7 @@
    "id": "bHS2bsl38gs",
    "titulo": "GTA 6 trae su propio disco: 34 canciones nuevas 🎵",
    "publicado": "2026-11-16T13:00:08+00:00",
-   "vistas": 1320,
+   "vistas": 1322,
    "likes": 8,
    "short": true,
    "canal": "es"
@@ -359,6 +356,12 @@
   {
    "hora": "2026-11-20T09:00",
    "vistas": 5353,
+   "likes": 90,
+   "videos": 21
+  },
+  {
+   "hora": "2026-11-20T10:00",
+   "vistas": 5372,
    "likes": 90,
    "videos": 21
   }
