@@ -1,14 +1,19 @@
 {
- "actualizado": "2026-11-20T13:11:15+01:00",
+ "actualizado": "2026-11-23T09:21:03+01:00",
  "cola": {
-  "guiones_pendientes": 0,
-  "proximos": [],
+  "guiones_pendientes": 4,
+  "proximos": [
+   "2026-11-23-a-pt",
+   "2026-11-23-a",
+   "2026-11-23-b",
+   "2026-11-23-c"
+  ],
   "listos_para_subir": 0,
   "publicados": 33,
-  "ultima_guion": "2026-11-20T06:50:04+01:00",
+  "ultima_guion": "2026-11-23T06:46:03+01:00",
   "ultima_publicacion": "2026-11-20T10:01:51+01:00",
-  "ultima_estrategia": "2026-11-18T13:12:51+01:00",
-  "pc_ultima": "2026-11-20T13:11:15+01:00",
+  "ultima_estrategia": "2026-11-22T13:13:15+01:00",
+  "pc_ultima": "2026-11-23T09:21:03+01:00",
   "pc_version": "v35.5"
  },
  "videos": [
@@ -382,6 +387,12 @@
    "vistas": 5417,
    "likes": 90,
    "videos": 21
+  },
+  {
+   "hora": "2026-11-23T09:00",
+   "vistas": 5421,
+   "likes": 90,
+   "videos": 21
   }
  ],
  "redes": {
@@ -393,7 +404,7 @@
   "youtube": 9,
   "instagram": {
    "seguidores": 0,
-   "publicaciones": 16
+   "publicaciones": 17
   }
  },
  "nombre": "Fuera del Mapa"
