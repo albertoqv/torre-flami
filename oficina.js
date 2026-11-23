@@ -12,12 +12,12 @@ window.tcOfi = (() => {
 
   // Salas: las del fondo apoyan en la pared del fondo (gy=0) y las de la izquierda en la pared izquierda (gx=0)
   const SALAS = {
-    analisis: { n: 'Análisis', sub: 'Don Caimán estudia las cifras', x: 0, y: 0, w: 7, d: 7, suelo: '#fde3cf', linea: '#f1c3a0', muro: 'fondo' },
-    guiones: { n: 'Sala de guiones', sub: 'Rocco escribe los vídeos de mañana', x: 7, y: 0, w: 7, d: 7, suelo: '#d5e6fb', linea: '#a9c8ef', muro: 'fondo' },
-    cine: { n: 'Sala de cine', sub: 'Toca un vídeo para verlo', x: 14, y: 0, w: 7, d: 7, suelo: '#3a2f5c', linea: '#4a3d72', muro: 'fondo' },
+    analisis: { n: 'Publicador 3 · 22:23', sub: 'Don Caimán publica y repasa los domingos', x: 0, y: 0, w: 7, d: 7, suelo: '#fde3cf', linea: '#f1c3a0', muro: 'fondo' },
+    guiones: { n: 'Publicador 1 · 16:23', sub: 'Rocco publica y envía a la campaña', x: 7, y: 0, w: 7, d: 7, suelo: '#d5e6fb', linea: '#a9c8ef', muro: 'fondo' },
+    cine: { n: 'Sala de cine', sub: 'Toca un clip para verlo', x: 14, y: 0, w: 7, d: 7, suelo: '#3a2f5c', linea: '#4a3d72', muro: 'fondo' },
     pc: { n: 'Sala del PC', sub: 'Aquí ves si hay que encenderlo', x: 21, y: 0, w: 7, d: 7, suelo: '#dfe3ec', linea: '#c3c9d8', muro: 'fondo' },
-    plato: { n: 'Plató', sub: 'Flami graba los vídeos', x: 0, y: 8, w: 7, d: 7, suelo: '#e7dafc', linea: '#c8b3f0', muro: 'izq' },
-    publicacion: { n: 'Publicación', sub: 'Manolo sube los vídeos a las redes', x: 0, y: 15, w: 7, d: 7, suelo: '#d6f3e1', linea: '#a4dbba', muro: 'izq' },
+    plato: { n: 'Fábrica de clips', sub: 'Flami corta los mejores momentos', x: 0, y: 8, w: 7, d: 7, suelo: '#e7dafc', linea: '#c8b3f0', muro: 'izq' },
+    publicacion: { n: 'Publicador 2 · 19:23', sub: 'Manolo publica y envía a la campaña', x: 0, y: 15, w: 7, d: 7, suelo: '#d6f3e1', linea: '#a4dbba', muro: 'izq' },
     seguidores: { n: 'Seguidores', sub: 'Así crece la comunidad', x: 0, y: 22, w: 7, d: 7, suelo: '#fff1cc', linea: '#f0d68e', muro: 'izq' }
   };
   const puerta = (s) => (s.muro === 'fondo' ? { dentro: [s.x + 3.5, 6.2], fuera: [s.x + 3.5, 7.5] } : { dentro: [6.2, s.y + 3.5], fuera: [7.5, s.y + 3.5] });
@@ -27,7 +27,7 @@ window.tcOfi = (() => {
     fabrica: { sala: 'plato', p: 'flami', mesa: [2.3, 11.4], sofa: [5.3, 9.4], chill: [14.2, 15.4] },
     publicador: { sala: 'publicacion', p: 'manolo', mesa: [2.9, 17.6], sofa: [5.3, 20.6], chill: [18.4, 14.8] }
   };
-  const NOMBRES = { analista: 'Don Caimán · analista', guionista: 'Rocco · guionista', fabrica: 'Flami · fábrica', publicador: 'Manolo · publicador' };
+  const NOMBRES = { analista: 'Don Caimán · publicador 3', guionista: 'Rocco · publicador 1', fabrica: 'Flami · fábrica de clips', publicador: 'Manolo · publicador 2' };
   const MODO = { trabaja: '#2fbf71', relax: '#e8a93a', duerme: '#9a92c8', alerta: '#ff5d70' };
 
   // ---------- utilidades ----------
@@ -60,17 +60,13 @@ window.tcOfi = (() => {
   }
   const hora = (x) => (x ? x.toLocaleString('es-ES', { weekday: 'short', hour: '2-digit', minute: '2-digit' }) : '—');
 
-  // ¿Hay que encender el PC? Los guiones llegan a las 06:42 y solo el PC los convierte en vídeos.
-  function consejoPC(pce, guiones, listos, ultPc) {
-    const ahora = new Date(), des = madrid(ahora) - ahora;
-    const hoy = madrid(ahora); hoy.setHours(6, 50, 0, 0); const llegada = new Date(hoy - des);
-    const sinVer = ultPc && ahora > llegada && new Date(ultPc) < llegada;
-    const dia = madrid(ahora).getDay(), finde = dia === 0 || dia === 6;
-    if (finde && pce !== 'Trabajando') return ['FIN DE SEMANA', 'No hace falta: el viernes quedó todo listo', '#ffd36b'];
-    if (pce === 'Trabajando') return guiones > 0 ? ['DÉJALO ENCENDIDO', `Está montando ${guiones} vídeo${guiones > 1 ? 's' : ''}`, '#7df9c8'] : ['PUEDES APAGARLO', 'Todo montado. Mañana a las 8:30 hay más', '#8fb4ff'];
-    if (guiones > 0 || sinVer) return ['¡ENCIÉNDELO!', guiones > 0 ? `${guiones} guion${guiones > 1 ? 'es' : ''} esperando` : 'Han llegado los guiones de hoy', '#ff7a8a'];
-    if (pce === 'Apagado') return listos > 0 ? ['NO HACE FALTA', `${listos} vídeos listos se suben solos`, '#ffd36b'] : ['A LAS 8:30', 'Enciéndelo al llegar a clase', '#ffd36b'];
-    return ['SIN DATOS', 'Enciéndelo para saber cómo va', '#c9c2e6'];
+  // ¿Hay que encender el PC? Los 3 publicadores necesitan el PC con Chrome de 16:00 a 23:00.
+  function consejoPC(pce, pedidos, clips) {
+    const m = madrid(new Date()), min = m.getHours() * 60 + m.getMinutes();
+    const ventana = min >= 15 * 60 + 50 && min < 23 * 60;
+    if (ventana) return pce === 'Trabajando' ? ['DÉJALO ENCENDIDO', 'Los publicadores están de turno', '#7df9c8'] : ['¡ENCIÉNDELO!', 'Turnos 16:23 · 19:23 · 22:23', '#ff7a8a'];
+    if (pce === 'Trabajando') return min >= 23 * 60 ? ['PUEDES APAGARLO', 'Turnos de hoy terminados', '#8fb4ff'] : ['ENCENDIDO', pedidos > 0 ? 'La fábrica adelanta clips' : `${clips} clips listos`, '#7df9c8'];
+    return ['A LAS 16:00', 'Te aviso al móvil a las 15:41', '#ffd36b'];
   }
 
   // ---------- datos ----------
@@ -79,13 +75,20 @@ window.tcOfi = (() => {
     const T = v('totales')[0] || {}, C = v('cola')[0] || {}, pce = (v('pc_estado')[0] || {}).estado, pc = v('pc')[0] || {};
     const ag = v('agentes'), fila = (id) => ag.find((a) => a.id === id);
     const horas = (s) => (s ? (Date.now() - new Date(s)) / 36e5 : Infinity);
-    const g = fila('guionista'), pu = fila('publicador'), an = fila('analista');
-    const e = {};
-    e.guionista = !g ? { modo: 'relax', txt: 'Pensando ideas' } : g.resultado !== 'ok' ? { modo: 'alerta', txt: '¡Hoy no he escrito!' } : horas(g.ultima) < 1.5 ? { modo: 'trabaja', txt: 'Escribiendo guiones' } : { modo: 'relax', txt: 'Guiones de hoy hechos' };
-    e.fabrica = pce === 'Apagado' ? { modo: 'duerme', txt: 'PC apagado, me echo la siesta' } : pce !== 'Trabajando' ? { modo: 'relax', txt: 'Esperando al PC' } : (C.guiones || 0) > 0 ? { modo: 'trabaja', txt: `¡Grabando ${C.guiones} vídeo${C.guiones > 1 ? 's' : ''}!` } : { modo: 'relax', txt: 'Todo grabado' };
-    e.publicador = !pu ? { modo: 'relax', txt: 'Vigilando el copyright' } : pu.resultado !== 'ok' ? { modo: 'alerta', txt: '¡Vídeos atascados!' } : horas(pu.ultima) < 0.4 ? { modo: 'trabaja', txt: 'Subiendo vídeos' } : (C.listos || 0) > 0 ? { modo: 'relax', txt: `${C.listos} listos para subir` } : { modo: 'relax', txt: 'Todo subido' };
-    const dia = new Date().getDay();
-    e.analista = !an ? { modo: 'relax', txt: 'Mirando cifras' } : horas(an.ultima) < 0.5 ? { modo: 'trabaja', txt: 'Estudiando los datos' } : { modo: 'duerme', txt: dia === 3 || dia === 0 ? 'Esta noche estudio' : dia < 3 ? 'Vuelvo el miércoles' : 'Vuelvo el domingo' };
+        const e = {};
+    // Los 3 publicadores trabajan por turnos (16:23, 19:23, 22:23); cada turno dura unos 30 min
+    const ahoraM = madrid(new Date()), minHoy = ahoraM.getHours() * 60 + ahoraM.getMinutes();
+    const turno = (h, m, nombre) => {
+      const ini = h * 60 + m, enTurno = minHoy >= ini && minHoy < ini + 35;
+      if ((C.listos || 0) === 0 && enTurno) return { modo: 'relax', txt: 'Mi turno, pero no hay clips' };
+      if (enTurno) return pce === 'Apagado' ? { modo: 'alerta', txt: '¡Mi turno y el PC está apagado!' } : { modo: 'trabaja', txt: 'Publicando y enviando clips' };
+      return minHoy < ini ? { modo: 'relax', txt: `Salgo a las ${h}:${String(m).padStart(2, '0')}` } : { modo: 'duerme', txt: 'Turno hecho, mañana más' };
+    };
+    e.guionista = turno(16, 23, 'Rocco');
+    e.publicador = turno(19, 23, 'Manolo');
+    e.analista = turno(22, 23, 'Don Caimán');
+    if (new Date().getDay() === 0 && e.analista.modo === 'relax') e.analista.txt += ' (y hoy repaso la semana)';
+    e.fabrica = pce === 'Apagado' ? { modo: 'duerme', txt: 'PC apagado, me echo la siesta' } : pce !== 'Trabajando' ? { modo: 'relax', txt: 'Esperando al PC' } : (C.guiones || 0) > 0 ? { modo: 'trabaja', txt: '¡Cortando clips!' } : { modo: 'relax', txt: `${C.listos || 0} clips listos` };
     const vids = v('videos'), es = vids.filter((x) => (x.canal || 'es') === 'es');
     const hist = v('historico').map((h) => ({ t: new Date(h.hora).getTime(), v: Number(h.vistas) || 0 }));
     let dia24 = null;
@@ -93,14 +96,14 @@ window.tcOfi = (() => {
     const red = (n) => v('redes').find((r) => r.red === n) || {};
     return {
       est: e, pce, version: pc.version, act: pc.ultima_ejecucion,
-      consejo: consejoPC(pce, C.guiones || 0, C.listos || 0, pc.ultima_ejecucion),
+      consejo: consejoPC(pce, C.guiones || 0, C.listos || 0),
       vistas: T.vistas, likes: T.likes, guiones: C.guiones || 0, listos: C.listos || 0, publicados: v('publicados').length,
       proximos: v('pendientes').map((p) => p.nombre),
       hist: hist.slice(-48).map((h) => h.v), dia24,
       redes: { yt: red('YouTube'), br: red('YouTube Brasil'), tt: red('TikTok'), ig: red('Instagram') },
       top: es.slice().sort((a, b) => b.vistas - a.vistas).slice(0, 3),
       ultimos: vids.slice().sort((a, b) => String(b.publicado).localeCompare(String(a.publicado))).slice(0, 5),
-      prox: { guionista: siguiente([[null, 6, 42]]), publicador: siguiente([[null, 12, 47], [null, 22, 47]]), analista: siguiente([[[0, 3], 20, 37]]) }
+      prox: { guionista: siguiente([[null, 16, 23]]), publicador: siguiente([[null, 19, 23]]), analista: siguiente([[null, 22, 23]]) }
     };
   }
 
@@ -150,7 +153,7 @@ window.tcOfi = (() => {
       const [ux, uy] = pts[pts.length - 1]; if (Math.floor(t / 400) % 2) { c.beginPath(); c.arc(ux, uy, 3, 0, 7); c.fillStyle = '#fff'; c.fill(); }
     } else tx(c, 'recogiendo datos...', x0, y0 + 26, P(17), '#5fbf9a');
     tx(c, 'últimas 48 h', x0, h - 8, P(15), '#5fbf9a');
-    tx(c, 'estudio ' + hora(D.prox.analista), w - 10, h - 8, P(15), '#5fbf9a', 'right');
+    tx(c, 'Caimán: ' + hora(D.prox.analista), w - 10, h - 8, P(15), '#5fbf9a', 'right');
     fin(c);
   }
   function paredTop(c, D, t) {
@@ -171,11 +174,11 @@ window.tcOfi = (() => {
     const w = 196, h = 128;
     rr(c, -6, -6, w + 12, h + 12, 7, '#b9aa8e'); rr(c, 0, 0, w, h, 4, '#fdfcf5');
     c.strokeStyle = '#ece4cf'; c.lineWidth = 1; for (let y = 44; y < h - 18; y += 20) { c.beginPath(); c.moveTo(10, y + 5); c.lineTo(w - 10, y + 5); c.stroke(); }
-    tx(c, 'Próximos guiones', 12, 24, R(600, 16), '#3a2f55');
+    tx(c, 'Pedidos en la fábrica', 12, 24, R(600, 16), '#3a2f55');
     rr(c, w - 44, 8, 34, 24, 12, '#e0507f'); tx(c, String(D.guiones), w - 27, 26, R(700, 16), '#fff', 'center');
-    const L = D.proximos.length ? D.proximos.slice(0, 3) : ['Cola vacía: todo montado ✓'];
+    const L = D.proximos.length ? D.proximos.slice(0, 3) : ['Sin pedidos: fábrica al día ✓'];
     c.font = R(500, 13); L.forEach((n, i) => tx(c, corta(c, '• ' + n, w - 24), 12, 48 + i * 20, R(500, 13), i % 2 ? '#3d7be0' : '#d04478'));
-    tx(c, 'Siguiente tanda: ' + hora(D.prox.guionista), 12, h - 10, R(500, 11.5), '#8a7f99');
+    tx(c, 'Rocco publica: ' + hora(D.prox.guionista), 12, h - 10, R(500, 11.5), '#8a7f99');
     rr(c, 30, h + 4, 34, 5, 2, '#e0507f'); rr(c, 70, h + 4, 34, 5, 2, '#3d7be0'); rr(c, 110, h + 4, 34, 5, 2, '#2fbf71');
   }
   function paredCine(c, D, t, st) {
@@ -204,7 +207,7 @@ window.tcOfi = (() => {
     if (!urge || Math.floor(t / 550) % 2) txF(c, titulo, 10, 52, P, 34, w - 20, col);
     c.font = P(17); tx(c, corta(c, txt, w - 20), 10, 74, P(17), '#ffffff');
     linea(c, 10, w - 10, 86);
-    tx(c, `grabando ${D.guiones}`, 10, 104, P(17), '#d8fff0'); tx(c, `listos ${D.listos}`, w - 10, 104, P(17), '#d8fff0', 'right');
+    tx(c, `pedidos ${D.guiones}`, 10, 104, P(17), '#d8fff0'); tx(c, `clips ${D.listos}`, w - 10, 104, P(17), '#d8fff0', 'right');
     tx(c, D.version ? 'fábrica ' + D.version : 'fábrica automática', 10, h - 7, P(14), '#5fbf9a');
     fin(c);
   }
@@ -214,22 +217,22 @@ window.tcOfi = (() => {
     const on = modo === 'trabaja';
     rr(c, 54, 8, 88, 26, 6, '#1c1828'); c.shadowColor = '#ff3b3b'; c.shadowBlur = on ? 12 : 0;
     tx(c, 'ON AIR', 98, 26, R(700, 15), on && Math.floor(t / 700) % 2 ? '#ff4d5e' : on ? '#ff8a96' : '#6a4a56', 'center'); c.shadowBlur = 0;
-    tx(c, on ? `Grabando ${D.guiones} vídeo${D.guiones === 1 ? '' : 's'}` : modo === 'duerme' ? 'Plató apagado' : 'Esperando guiones', w / 2, h - 12, R(600, 13), 'rgba(255,255,255,.85)', 'center');
+    tx(c, on ? `Cortando clips (${D.guiones} pedido${D.guiones === 1 ? '' : 's'})` : modo === 'duerme' ? 'Fábrica apagada' : `${D.listos} clips listos`, w / 2, h - 12, R(600, 13), 'rgba(255,255,255,.85)', 'center');
   }
   function paredPublicacion(c, D, t) {
     const w = 196, h = 128; pantalla(c, w, h, t, '#ffd36b');
-    tx(c, 'POR SUBIR', 10, 18, P(18), '#ffd36b'); tx(c, 'SUBIDOS', 108, 18, P(18), '#7df9c8');
+    tx(c, 'CLIPS LISTOS', 10, 18, P(18), '#ffd36b'); tx(c, 'PUBLICADOS', 108, 18, P(18), '#7df9c8');
     txF(c, fmt(D.listos), 10, 58, P, 46, 88, '#ffffff'); txF(c, fmt(D.publicados), 108, 58, P, 46, 80, '#ffffff');
     linea(c, 10, w - 10, 70);
     [['YT', '#ff5a5a'], ['TT', '#4ff0e0'], ['IG', '#ff8cc0'], ['BR', '#4fe08f']].forEach(([s, col], i) => { rr(c, 10 + i * 46, 78, 40, 18, 4, 'rgba(255,255,255,.07)'); tx(c, s, 30 + i * 46, 92, P(17), col, 'center'); });
-    tx(c, 'próxima subida ' + hora(D.prox.publicador), 10, h - 8, P(15), '#5fbf9a');
+    tx(c, 'Manolo publica: ' + hora(D.prox.publicador), 10, h - 8, P(15), '#5fbf9a');
     fin(c);
   }
   function paredSeguidores(c, D, t) {
     const w = 196, h = 150; pantalla(c, w, h, t, '#ffd36b');
     const r = D.redes, tot = ['yt', 'br', 'tt', 'ig'].reduce((a, k) => a + (Number(r[k].seguidores) || 0), 0);
     tx(c, 'SEGUIDORES', 10, 18, P(18), '#ffd36b'); tx(c, 'total ' + fmt(tot), w - 10, 18, P(18), '#ffffff', 'right');
-    const f = [['YT', 'España', '#ff5a5a', r.yt.seguidores], ['BR', 'Brasil', '#4fe08f', r.br.seguidores], ['TT', 'TikTok', '#4ff0e0', r.tt.seguidores], ['IG', 'Instagram', '#ff8cc0', r.ig.seguidores]];
+    const f = [['YT', 'YouTube', '#ff5a5a', r.yt.seguidores], ['BR', 'Brasil', '#4fe08f', r.br.seguidores], ['TT', 'TikTok', '#4ff0e0', r.tt.seguidores], ['IG', 'Instagram', '#ff8cc0', r.ig.seguidores]];
     f.forEach(([et, n, col, v], i) => {
       const x = 8 + (i % 2) * 92, y = 26 + Math.floor(i / 2) * 46;
       rr(c, x, y, 88, 42, 5, 'rgba(255,255,255,.07)');
@@ -247,7 +250,7 @@ window.tcOfi = (() => {
     rr(c, 0, 0, w, h, 16, '#221a38');
     c.lineWidth = 3; c.strokeStyle = on ? '#ff6fae' : '#6a2a52'; c.shadowColor = '#ff4fa3'; c.shadowBlur = on ? 16 : 0;
     c.beginPath(); c.roundRect(7, 7, w - 14, h - 14, 11); c.stroke();
-    txF(c, 'Fuera del Mapa', w / 2, 50, (z) => R(700, z), 40, w - 40, on ? '#ff9ac8' : '#8a3d6a', 'center');
+    txF(c, 'GTA 6 Clips Daily', w / 2, 50, (z) => R(700, z), 40, w - 40, on ? '#ff9ac8' : '#8a3d6a', 'center');
     c.shadowColor = '#4ff0e0';
     const ms = ESTRENO - Date.now();
     txF(c, ms > 0 ? `GTA 6 en ${Math.floor(ms / 864e5)} d ${Math.floor(ms / 36e5) % 24} h ${Math.floor(ms / 6e4) % 60} min` : '¡GTA 6 ya está aquí!', w / 2, 76, (z) => R(600, z), 17, w - 40, on ? '#8ff8ee' : '#2e6a66', 'center');
@@ -473,7 +476,7 @@ window.tcOfi = (() => {
       cv.style.touchAction = 'none'; cv.style.cursor = 'grab';
       const pista = document.createElement('div'); pista.className = 'tc-pista'; pista.textContent = 'Toca una sala para verla de cerca · arrastra para moverte';
       const barra = document.createElement('div'); barra.className = 'tc-salas';
-      [['general', '🏢 Todo'], ['pc', '🔌 PC'], ['seguidores', '👥 Seguidores'], ['cine', '🎬 Vídeos'], ['analisis', '📊 Análisis'], ['guiones', '✍️ Guiones'], ['plato', '🎥 Plató'], ['publicacion', '🚀 Publicación']].forEach(([k, n]) => {
+      [['general', '🏢 Todo'], ['pc', '🔌 PC'], ['seguidores', '👥 Seguidores'], ['cine', '🎬 Vídeos'], ['plato', '✂️ Fábrica'], ['guiones', '🚀 Rocco 16:23'], ['publicacion', '🚀 Manolo 19:23'], ['analisis', '🚀 Caimán 22:23']].forEach(([k, n]) => {
         const b = document.createElement('button'); b.type = 'button'; b.textContent = n; b.onclick = () => ir(k); barra.append(b);
       });
       const zm = document.createElement('div'); zm.className = 'tc-zoom';

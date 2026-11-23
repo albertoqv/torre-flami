@@ -1,6 +1,6 @@
 # Torre Flami
 
-App de la Torre de control de **Fuera del Mapa**: la oficina de los agentes (guionista, fábrica, publicador y analista) con las cifras del canal.
+App de la Torre de control de **GTA 6 Clips Daily**: la oficina de los agentes (fábrica de clips y tres publicadores por turnos: Rocco 16:23, Manolo 19:23 y Don Caimán 22:23) con las cifras de la cuenta.
 
 - La web se publica con GitHub Pages y se instala en el móvil (también como APK con PWABuilder).
 - `scripts/datos.py` y el workflow `Actualizar datos` leen cada 10 minutos las estadísticas públicas que escribe el PC en Drive y guardan `data/app.json`.

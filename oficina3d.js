@@ -35,7 +35,7 @@ window.tcOfi3d = (() => {
       renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
       renderer.outputEncoding = THREE.sRGBEncoding; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.82;
       renderer.domElement.setAttribute('role', 'img');
-      renderer.domElement.setAttribute('aria-label', 'Oficina 3D de Fuera del Mapa: salas de análisis, guiones, cine, PC, plató, publicación y seguidores con sus personajes y pantallas de datos');
+      renderer.domElement.setAttribute('aria-label', 'Oficina 3D de GTA 6 Clips Daily: fábrica de clips, tres publicadores, cine, PC y seguidores con sus personajes y pantallas de datos');
       el.append(renderer.domElement);
       const escena = new THREE.Scene();
       escena.fog = new THREE.Fog(0x2a2140, 60, 110);
@@ -226,7 +226,7 @@ window.tcOfi3d = (() => {
 
       // botones y pista
       const barra = document.createElement('div'); barra.className = 'tc-salas';
-      [['general', '🏢 Todo'], ['pc', '🔌 PC'], ['seguidores', '👥 Seguidores'], ['cine', '🎬 Vídeos'], ['analisis', '📊 Análisis'], ['guiones', '✍️ Guiones'], ['plato', '🎥 Plató'], ['publicacion', '🚀 Publicación']].forEach(([k, n]) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = n; b.onclick = () => ir(k); barra.append(b); });
+      [['general', '🏢 Todo'], ['pc', '🔌 PC'], ['seguidores', '👥 Seguidores'], ['cine', '🎬 Vídeos'], ['plato', '✂️ Fábrica'], ['guiones', '🚀 Rocco 16:23'], ['publicacion', '🚀 Manolo 19:23'], ['analisis', '🚀 Caimán 22:23']].forEach(([k, n]) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = n; b.onclick = () => ir(k); barra.append(b); });
       const pista = document.createElement('div'); pista.className = 'tc-pista'; pista.textContent = 'Gira con un dedo · pellizca para acercarte · toca una sala para visitarla';
       el.append(pista, barra); setTimeout(() => pista.classList.add('fuera'), 5000);
 
